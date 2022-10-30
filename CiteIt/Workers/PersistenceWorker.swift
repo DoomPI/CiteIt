@@ -14,26 +14,22 @@ struct PersistenceWorker: PersistenceWorking {
     // MARK: - Init
     private init() {}
     
-    func write(json: Data) async {
+    func write(to path: String, data: Data) async {
         return await Task(priority: .background, operation: { () -> Void in
             do {
-                if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                    let fileURL = documentsURL.appendingPathComponent("quotes.json")
-                    try json.write(to: fileURL, options: .atomic)
+                if let url = URL(string: path) {
+                    try data.write(to: url, options: .atomic)
                 }
             } catch { }
         }).value
     }
     
-    func read() async -> Data? {
+    func read(from path: String) async -> Data? {
         return await Task(priority: .background, operation: { () -> Data? in
-            if let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let filePath = documentsURL.appendingPathComponent("quotes.json").path
-                if FileManager.default.fileExists(
-                    atPath: filePath),
-                    let data = FileManager.default.contents(atPath: filePath) {
-                    return data
-                }
+            if FileManager.default.fileExists(
+                atPath: path),
+                let data = FileManager.default.contents(atPath: path) {
+                return data
             }
             
             return nil
