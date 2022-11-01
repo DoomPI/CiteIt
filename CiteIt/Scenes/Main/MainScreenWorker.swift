@@ -15,7 +15,7 @@ class MainScreenWorker: MainScreenWorkingLogic {
     private let decoder = JSONDecoder()
     private let quotesListURL = URL(string: "https://zenquotes.io/api/quotes")!
     
-    private let quotesListPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("quotes.json").path
+    private let quotesListPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("quotes.json")
     
     func getQuotesList(_ request: Model.GetQuotesList.Request, completion: @escaping ([Model.Quote]) -> ()) {
         
@@ -30,6 +30,9 @@ class MainScreenWorker: MainScreenWorkingLogic {
                     DispatchQueue.main.async {
                         completion(quotesList)
                     }
+                    Task { [weak self] in
+                        self?.saveQuotesList(data: data)
+                    }
                 }
             }
         })
@@ -39,7 +42,9 @@ class MainScreenWorker: MainScreenWorkingLogic {
         Task { [weak self] in
             if let data = await self?.persistenceWorker.read(from: quotesListPath),
                let quotesList = try? self?.decoder.decode([Model.Quote].self, from: data) {
-                 completion(quotesList)
+                DispatchQueue.main.async {
+                    completion(quotesList)
+                }
             }
         }
     }

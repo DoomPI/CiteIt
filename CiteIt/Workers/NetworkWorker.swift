@@ -9,6 +9,7 @@ import Foundation
 
 struct NetworkWorker: NetworkWorking {
     
+    // MARK: - Shared
     static let shared = NetworkWorker()
     
     // MARK: - Init

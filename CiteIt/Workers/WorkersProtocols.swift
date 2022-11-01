@@ -14,9 +14,7 @@ protocol NetworkWorking {
 
 protocol PersistenceWorking {
     
-    typealias Model = QuotesListModel.Quote
+    func write(to path: URL, data: Data) async
     
-    func write(to path: String, data: Data) async
-    
-    func read(from path: String) async -> Data?
+    func read(from path: URL) async -> Data?
 }
