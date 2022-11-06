@@ -35,5 +35,7 @@ protocol StartScreenWorkingLogic {
                         didSucceed: @escaping (Model.RandomQuote.Response) -> (),
                         didFail: @escaping () -> ()
     )
-    func loadRandomQuote(completion: @escaping (Model.RandomQuote.Response) -> ())
+    func loadRandomQuote(didSucceed: @escaping (Model.RandomQuote.Response) -> (),
+                         didFail: @escaping () -> ()
+    )
 }

@@ -34,8 +34,13 @@ extension StartScreenInteractor: StartScreenBusinessLogic {
     }
     
     func loadRandomQuote() {
-        worker.loadRandomQuote { [weak self] quotes in
-            self?.presenter.presentRandomQuote(quotesList: quotes)
-        }
+        worker.loadRandomQuote(
+            didSucceed: { [weak self] quotes in
+                self?.presenter.presentRandomQuote(quotesList: quotes)
+            },
+            didFail: { [weak self] in
+                self?.presenter.present()
+            }
+        )
     }
 }

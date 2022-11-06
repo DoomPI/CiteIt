@@ -37,20 +37,26 @@ class StartScreenWorker: StartScreenWorkingLogic {
                         self?.saveQuotesList(data: data)
                     }
                 } else {
-                    DispatchQueue.main.async {
-                        didFail()
+                    DispatchQueue.main.async { [weak self] in
+                        self?.loadRandomQuote(didSucceed: didSucceed, didFail: didFail)
                     }
                 }
             }
         }
     }
     
-    func loadRandomQuote(completion: @escaping (Model.RandomQuote.Response) -> ()) {
+    func loadRandomQuote(didSucceed: @escaping (Model.RandomQuote.Response) -> (),
+                         didFail: @escaping () -> ()
+    ) {
         Task { [weak self] in
             if let data = await self?.persistenceWorker.read(from: quotesListPath),
                let quotesList = try? self?.decoder.decode([Model.Quote].self, from: data) {
                 DispatchQueue.main.async {
-                    completion(quotesList)
+                    didSucceed(quotesList)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    didFail()
                 }
             }
         }
