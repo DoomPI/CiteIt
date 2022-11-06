@@ -9,7 +9,7 @@ import Foundation
 
 protocol NetworkWorking {
     
-    func sendRequest(to: URL, params: [String: String]?, completion: @escaping (Data?) -> Void)
+    func sendRequest(to: URL, params: [String: String]?, completion: @escaping (Data?) -> Void) async
 }
 
 protocol PersistenceWorking {

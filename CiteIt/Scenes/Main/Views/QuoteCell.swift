@@ -30,7 +30,7 @@ class QuoteCell: UITableViewCell {
         super.layoutSubviews()
     }
     
-    func configure(with quote: QuotesListModel.Quote) {
+    func configure(with quote: QuotesModel.Quote) {
         quoteAuthorLabel.text = quote.author
         quoteTextLabel.text = quote.text
     }

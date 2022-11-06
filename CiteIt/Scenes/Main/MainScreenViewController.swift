@@ -14,7 +14,7 @@ class MainScreenViewController: UIViewController {
     private let router: MainScreenRoutingLogic
     
     private var tableView = UITableView(frame: .zero, style: .plain)
-    private var models = QuotesListModel.QuotesList(quotes: [])
+    private var models: [Model.Quote] = []
     
     // MARK: - Init
     init(interactor: MainScreenBusinessLogic, router: MainScreenRoutingLogic) {
@@ -37,7 +37,7 @@ class MainScreenViewController: UIViewController {
     }
     
     private func setupUI() {
-        self.view.backgroundColor = .systemPink
+        self.view.backgroundColor = .systemPurple
         
         configureTableView()
     }
@@ -71,11 +71,11 @@ class MainScreenViewController: UIViewController {
 extension MainScreenViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.quotes.count
+        return models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let quote = models.quotes[indexPath.row]
+        let quote = models[indexPath.row]
         
         if let quoteCell = tableView.dequeueReusableCell(
             withIdentifier: QuoteCell.reuseIdentifier,
@@ -91,7 +91,7 @@ extension MainScreenViewController: UITableViewDataSource {
 
 extension MainScreenViewController: MainScreenDisplayLogic {
     
-    func display(model: Model.QuotesList) {
+    func display(model: [Model.Quote]) {
         models = model
         DispatchQueue.main.async { [weak self] in
             self?.tableView.reloadData()

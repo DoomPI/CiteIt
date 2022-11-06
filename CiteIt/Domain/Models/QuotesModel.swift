@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum QuotesListModel {
+enum QuotesModel {
     
     enum GetQuotesList {
         struct Request {}
@@ -19,6 +19,16 @@ enum QuotesListModel {
         }
     }
     
+    enum GetQuoteOfTheDay {
+        struct Request {}
+        struct Response {
+            var quote: [Quote]
+        }
+        struct ViewModel {
+            var quote: Quote
+        }
+    }
+    
     struct Quote: Decodable {
         let text: String
         let author: String
@@ -27,9 +37,5 @@ enum QuotesListModel {
             case text = "q"
             case author = "a"
         }
-    }
-    
-    struct QuotesList: Decodable {
-        let quotes: [Quote]
     }
 }

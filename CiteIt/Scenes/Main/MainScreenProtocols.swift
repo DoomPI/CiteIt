@@ -6,27 +6,27 @@
 //
 
 protocol MainScreenDisplayLogic: AnyObject {
-    typealias Model = QuotesListModel
-    func display(model: Model.QuotesList)
+    typealias Model = QuotesModel
+    func display(model: [Model.Quote])
 }
 
 protocol MainScreenPresentationLogic {
-    typealias Model = QuotesListModel
-    func present(quotesList: Model.QuotesList)
+    typealias Model = QuotesModel
+    func present(quotesList: [Model.Quote])
 }
 
 protocol MainScreenBusinessLogic {
-    typealias Model = QuotesListModel
+    typealias Model = QuotesModel
     func fetchQuotes()
     func showQuotes()
 }
 
 protocol MainScreenRoutingLogic {
-    
+    func navigateToQuotesOfTheDayScreen()
 }
 
 protocol MainScreenWorkingLogic {
-    typealias Model = QuotesListModel
-    func getQuotesList(_ request: Model.GetQuotesList.Request, completion: @escaping ([Model.Quote]) -> ())
-    func loadQuotesList(completion: @escaping ([Model.Quote]) -> ())
+    typealias Model = QuotesModel
+    func getQuotes(_ request: Model.GetQuotesList.Request, completion: @escaping ([Model.Quote]) -> ())
+    func loadQuotes(completion: @escaping ([Model.Quote]) -> ())
 }
