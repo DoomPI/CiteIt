@@ -9,14 +9,12 @@ import Foundation
 
 protocol NetworkWorking {
     
-    func sendRequest(to: URL, params: [String: String]?, completion: @escaping (Data?) -> Void)
+    func sendRequest(to: URL, params: [String: String]?, completion: @escaping (Data?) -> Void) async
 }
 
 protocol PersistenceWorking {
     
-    typealias Model = QuotesListModel.Quote
+    func write(to path: URL, data: Data) async
     
-    func write(json: Data) async
-    
-    func read() async -> Data?
+    func read(from path: URL) async -> Data?
 }

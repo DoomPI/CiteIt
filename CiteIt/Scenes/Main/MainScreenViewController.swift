@@ -13,6 +13,9 @@ class MainScreenViewController: UIViewController {
     private let interactor: MainScreenBusinessLogic
     private let router: MainScreenRoutingLogic
     
+    private var tableView = UITableView(frame: .zero, style: .plain)
+    private var models: [Model.Quote] = []
+    
     // MARK: - Init
     init(interactor: MainScreenBusinessLogic, router: MainScreenRoutingLogic) {
         self.interactor = interactor
@@ -27,16 +30,71 @@ class MainScreenViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .systemPink
+        setupUI()
         
         interactor.fetchQuotes()
         interactor.showQuotes()
+    }
+    
+    private func setupUI() {
+        self.view.backgroundColor = .systemPurple
+        
+        configureTableView()
+    }
+    
+    private func configureTableView() {
+        setTableViewUI()
+        setTableViewDelegate()
+        setTableViewCell()
+    }
+    
+    private func setTableViewUI() {
+        view.addSubview(tableView)
+        tableView.backgroundColor = .clear
+        tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        tableView.rowHeight = 120
+        tableView.pinLeft(to: view)
+        tableView.pinTop(to: view.safeAreaLayoutGuide.topAnchor)
+        tableView.pinRight(to: view)
+        tableView.pinBottom(to: view)
+    }
+    
+    private func setTableViewDelegate() {
+        tableView.dataSource = self
+    }
+    
+    private func setTableViewCell() {
+        tableView.register(QuoteCell.self, forCellReuseIdentifier: QuoteCell.reuseIdentifier)
+    }
+}
+
+extension MainScreenViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let quote = models[indexPath.row]
+        
+        if let quoteCell = tableView.dequeueReusableCell(
+            withIdentifier: QuoteCell.reuseIdentifier,
+            for: indexPath
+        ) as? QuoteCell {
+            quoteCell.configure(with: quote)
+            return quoteCell
+        }
+        
+        return UITableViewCell()
     }
 }
 
 extension MainScreenViewController: MainScreenDisplayLogic {
     
-    func display(model: Model.QuotesList) {
-        print(model.quotes)
+    func display(model: [Model.Quote]) {
+        models = model
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
 }

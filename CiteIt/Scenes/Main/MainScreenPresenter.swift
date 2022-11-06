@@ -13,7 +13,7 @@ class MainScreenPresenter {
 
 extension MainScreenPresenter: MainScreenPresentationLogic {
     
-    func present(quotesList: Model.QuotesList) {
+    func present(quotesList: [Model.Quote]) {
         viewController?.display(model: quotesList)
     }
 }

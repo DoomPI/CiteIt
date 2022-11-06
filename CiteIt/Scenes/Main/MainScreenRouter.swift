@@ -15,4 +15,7 @@ class MainScreenRouter {
 
 extension MainScreenRouter: MainScreenRoutingLogic {
     
+    func navigateToQuotesOfTheDayScreen() {
+        viewController?.navigationController?.pushViewController(QuotesOfTheDayScreenAssembly.build(), animated: true)
+    }
 }

@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC7939AC290A11A0006CD36F /* QuotesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7939AB290A11A0006CD36F /* QuotesListModel.swift */; };
+		CC5ADF8E291674E500163436 /* QuotesOfTheDayScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF8D291674E500163436 /* QuotesOfTheDayScreenProtocols.swift */; };
+		CC5ADF90291674F900163436 /* QuotesOfTheDayScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF8F291674F900163436 /* QuotesOfTheDayScreenAssembly.swift */; };
+		CC5ADF922916751100163436 /* QuotesOfTheDayScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF912916751100163436 /* QuotesOfTheDayScreenViewController.swift */; };
+		CC5ADF942916753900163436 /* QuotesOfTheDayScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF932916753900163436 /* QuotesOfTheDayScreenInteractor.swift */; };
+		CC5ADF962916754400163436 /* QuotesOfTheDayScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF952916754400163436 /* QuotesOfTheDayScreenPresenter.swift */; };
+		CC5ADF982916756E00163436 /* QuotesOfTheDayScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF972916756E00163436 /* QuotesOfTheDayScreenRouter.swift */; };
+		CC5ADF9A2916757B00163436 /* QuotesOfTheDayScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF992916757B00163436 /* QuotesOfTheDayScreenWorker.swift */; };
+		CC7939AC290A11A0006CD36F /* QuotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7939AB290A11A0006CD36F /* QuotesModel.swift */; };
 		CC917AC8290B115100D19492 /* NetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917AC7290B115100D19492 /* NetworkWorker.swift */; };
 		CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917AC9290B128D00D19492 /* WorkersProtocols.swift */; };
 		CC917ACC290B18A900D19492 /* PersistenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917ACB290B18A900D19492 /* PersistenceWorker.swift */; };
+		CCA49AF629116036009F9F23 /* QuoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA49AF529116036009F9F23 /* QuoteCell.swift */; };
+		CCA49AF8291164DD009F9F23 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA49AF7291164DD009F9F23 /* UIViewExt.swift */; };
 		CCAD8DDD2908B76A0037AA0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DDC2908B76A0037AA0F /* AppDelegate.swift */; };
 		CCAD8DDF2908B76A0037AA0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DDE2908B76A0037AA0F /* SceneDelegate.swift */; };
 		CCAD8DE62908B76C0037AA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCAD8DE52908B76C0037AA0F /* Assets.xcassets */; };
@@ -21,13 +30,24 @@
 		CCAD8DFB2908B8C30037AA0F /* MainScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DFA2908B8C30037AA0F /* MainScreenInteractor.swift */; };
 		CCAD8DFD2908B8D40037AA0F /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DFC2908B8D40037AA0F /* MainScreenPresenter.swift */; };
 		CCAD8DFF2908B8DD0037AA0F /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DFE2908B8DD0037AA0F /* MainScreenWorker.swift */; };
+		CCE9176529174E8300B1BC29 /* UIViewAsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */; };
+		CCE917672917668500B1BC29 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE917662917668500B1BC29 /* QuoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC7939AB290A11A0006CD36F /* QuotesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesListModel.swift; sourceTree = "<group>"; };
+		CC5ADF8D291674E500163436 /* QuotesOfTheDayScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenProtocols.swift; sourceTree = "<group>"; };
+		CC5ADF8F291674F900163436 /* QuotesOfTheDayScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenAssembly.swift; sourceTree = "<group>"; };
+		CC5ADF912916751100163436 /* QuotesOfTheDayScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenViewController.swift; sourceTree = "<group>"; };
+		CC5ADF932916753900163436 /* QuotesOfTheDayScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenInteractor.swift; sourceTree = "<group>"; };
+		CC5ADF952916754400163436 /* QuotesOfTheDayScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenPresenter.swift; sourceTree = "<group>"; };
+		CC5ADF972916756E00163436 /* QuotesOfTheDayScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenRouter.swift; sourceTree = "<group>"; };
+		CC5ADF992916757B00163436 /* QuotesOfTheDayScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenWorker.swift; sourceTree = "<group>"; };
+		CC7939AB290A11A0006CD36F /* QuotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesModel.swift; sourceTree = "<group>"; };
 		CC917AC7290B115100D19492 /* NetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWorker.swift; sourceTree = "<group>"; };
 		CC917AC9290B128D00D19492 /* WorkersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersProtocols.swift; sourceTree = "<group>"; };
 		CC917ACB290B18A900D19492 /* PersistenceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceWorker.swift; sourceTree = "<group>"; };
+		CCA49AF529116036009F9F23 /* QuoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCell.swift; sourceTree = "<group>"; };
+		CCA49AF7291164DD009F9F23 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		CCAD8DD92908B76A0037AA0F /* CiteIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CiteIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAD8DDC2908B76A0037AA0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCAD8DDE2908B76A0037AA0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +60,8 @@
 		CCAD8DFA2908B8C30037AA0F /* MainScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenInteractor.swift; sourceTree = "<group>"; };
 		CCAD8DFC2908B8D40037AA0F /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		CCAD8DFE2908B8DD0037AA0F /* MainScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWorker.swift; sourceTree = "<group>"; };
+		CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAsImage.swift; sourceTree = "<group>"; };
+		CCE917662917668500B1BC29 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +75,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC5ADF8B2916741C00163436 /* QuotesOfTheDay */ = {
+			isa = PBXGroup;
+			children = (
+				CC5ADF8C291674BD00163436 /* Views */,
+				CC5ADF8D291674E500163436 /* QuotesOfTheDayScreenProtocols.swift */,
+				CC5ADF8F291674F900163436 /* QuotesOfTheDayScreenAssembly.swift */,
+				CC5ADF912916751100163436 /* QuotesOfTheDayScreenViewController.swift */,
+				CC5ADF932916753900163436 /* QuotesOfTheDayScreenInteractor.swift */,
+				CC5ADF952916754400163436 /* QuotesOfTheDayScreenPresenter.swift */,
+				CC5ADF972916756E00163436 /* QuotesOfTheDayScreenRouter.swift */,
+				CC5ADF992916757B00163436 /* QuotesOfTheDayScreenWorker.swift */,
+			);
+			path = QuotesOfTheDay;
+			sourceTree = "<group>";
+		};
+		CC5ADF8C291674BD00163436 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		CC917AC6290B113C00D19492 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,39 +110,35 @@
 		CC917AD0290B87EA00D19492 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				CC917AD5290B9AFA00D19492 /* Use_cases */,
 				CCAD8E012908B9390037AA0F /* Models */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
 		};
-		CC917AD1290B87FD00D19492 /* Datastore */ = {
+		CCA49AF2291153B8009F9F23 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				CCA49AF3291153C0009F9F23 /* UI */,
 			);
-			path = Datastore;
+			path = Utility;
 			sourceTree = "<group>";
 		};
-		CC917AD4290B9AD900D19492 /* Network */ = {
+		CCA49AF3291153C0009F9F23 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				CCA49AF7291164DD009F9F23 /* UIViewExt.swift */,
+				CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */,
 			);
-			path = Network;
+			path = UI;
 			sourceTree = "<group>";
 		};
-		CC917AD5290B9AFA00D19492 /* Use_cases */ = {
+		CCA49AF429115FD8009F9F23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CCA49AF529116036009F9F23 /* QuoteCell.swift */,
+				CCE917662917668500B1BC29 /* QuoteView.swift */,
 			);
-			path = Use_cases;
-			sourceTree = "<group>";
-		};
-		CC917AD6290BDCA900D19492 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				CC917AD1290B87FD00D19492 /* Datastore */,
-			);
-			path = Data;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CCAD8DD02908B76A0037AA0F = {
@@ -120,8 +160,7 @@
 		CCAD8DDB2908B76A0037AA0F /* CiteIt */ = {
 			isa = PBXGroup;
 			children = (
-				CC917AD6290BDCA900D19492 /* Data */,
-				CC917AD4290B9AD900D19492 /* Network */,
+				CCA49AF2291153B8009F9F23 /* Utility */,
 				CC917AD0290B87EA00D19492 /* Domain */,
 				CC917AC6290B113C00D19492 /* Workers */,
 				CCAD8DF02908B7800037AA0F /* Scenes */,
@@ -136,6 +175,7 @@
 		CCAD8DF02908B7800037AA0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CC5ADF8B2916741C00163436 /* QuotesOfTheDay */,
 				CCAD8DF72908B88C0037AA0F /* Main */,
 			);
 			path = Scenes;
@@ -144,6 +184,7 @@
 		CCAD8DF72908B88C0037AA0F /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CCA49AF429115FD8009F9F23 /* Views */,
 				CCAD8DF52908B81B0037AA0F /* MainScreenProtocols.swift */,
 				CCAD8DF32908B8030037AA0F /* MainScreenAssembly.swift */,
 				CCAD8DF12908B7D20037AA0F /* MainScreenViewController.swift */,
@@ -158,7 +199,7 @@
 		CCAD8E012908B9390037AA0F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CC7939AB290A11A0006CD36F /* QuotesListModel.swift */,
+				CC7939AB290A11A0006CD36F /* QuotesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,16 +278,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAD8DF92908B8A30037AA0F /* MainScreenRouter.swift in Sources */,
+				CCE9176529174E8300B1BC29 /* UIViewAsImage.swift in Sources */,
 				CCAD8DF42908B8030037AA0F /* MainScreenAssembly.swift in Sources */,
 				CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */,
+				CC5ADF962916754400163436 /* QuotesOfTheDayScreenPresenter.swift in Sources */,
 				CC917AC8290B115100D19492 /* NetworkWorker.swift in Sources */,
+				CCA49AF629116036009F9F23 /* QuoteCell.swift in Sources */,
+				CC5ADF942916753900163436 /* QuotesOfTheDayScreenInteractor.swift in Sources */,
 				CCAD8DFD2908B8D40037AA0F /* MainScreenPresenter.swift in Sources */,
-				CC7939AC290A11A0006CD36F /* QuotesListModel.swift in Sources */,
+				CC7939AC290A11A0006CD36F /* QuotesModel.swift in Sources */,
+				CC5ADF90291674F900163436 /* QuotesOfTheDayScreenAssembly.swift in Sources */,
 				CC917ACC290B18A900D19492 /* PersistenceWorker.swift in Sources */,
+				CC5ADF8E291674E500163436 /* QuotesOfTheDayScreenProtocols.swift in Sources */,
 				CCAD8DF62908B81B0037AA0F /* MainScreenProtocols.swift in Sources */,
+				CC5ADF922916751100163436 /* QuotesOfTheDayScreenViewController.swift in Sources */,
+				CC5ADF9A2916757B00163436 /* QuotesOfTheDayScreenWorker.swift in Sources */,
+				CC5ADF982916756E00163436 /* QuotesOfTheDayScreenRouter.swift in Sources */,
 				CCAD8DDD2908B76A0037AA0F /* AppDelegate.swift in Sources */,
 				CCAD8DFF2908B8DD0037AA0F /* MainScreenWorker.swift in Sources */,
+				CCE917672917668500B1BC29 /* QuoteView.swift in Sources */,
 				CCAD8DFB2908B8C30037AA0F /* MainScreenInteractor.swift in Sources */,
+				CCA49AF8291164DD009F9F23 /* UIViewExt.swift in Sources */,
 				CCAD8DDF2908B76A0037AA0F /* SceneDelegate.swift in Sources */,
 				CCAD8DF22908B7D20037AA0F /* MainScreenViewController.swift in Sources */,
 			);

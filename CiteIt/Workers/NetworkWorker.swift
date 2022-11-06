@@ -9,6 +9,7 @@ import Foundation
 
 struct NetworkWorker: NetworkWorking {
     
+    // MARK: - Shared
     static let shared = NetworkWorker()
     
     // MARK: - Init
@@ -18,15 +19,19 @@ struct NetworkWorker: NetworkWorking {
     private let session = URLSession.shared
     
     // MARK: - Public methods
-    func sendRequest(to url: URL, params: [String: String]?, completion: @escaping (Data?) -> Void) {
-        let task = session.dataTask(with: url) { data, response, error in
-            if let data = data {
-                completion(data)
-            } else {
-                print("Could not get any content")
+    func sendRequest(to url: URL, params: [String: String]?, completion: @escaping (Data?) -> Void) async {
+        return await Task {
+            let task = session.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    DispatchQueue.main.async {
+                        completion(data)
+                    }
+                } else {
+                    print("Could not get any content")
+                }
             }
-        }
 
-        task.resume()
+            task.resume()
+        }.value
     }
 }
