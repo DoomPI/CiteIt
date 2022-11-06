@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC116C992917A07B00BDF7F5 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */; };
+		CC116C9B2917A08400BDF7F5 /* StartScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */; };
+		CC116C9D2917A09200BDF7F5 /* StartScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */; };
+		CC116C9F2917A09D00BDF7F5 /* StartScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9E2917A09D00BDF7F5 /* StartScreenRouter.swift */; };
+		CC116CA12917A0A600BDF7F5 /* StartScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116CA02917A0A600BDF7F5 /* StartScreenWorker.swift */; };
+		CC116CA32917A0B300BDF7F5 /* StartScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116CA22917A0B300BDF7F5 /* StartScreenProtocols.swift */; };
+		CC116CA52917A0BD00BDF7F5 /* StartScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116CA42917A0BD00BDF7F5 /* StartScreenAssembly.swift */; };
 		CC5ADF8E291674E500163436 /* QuotesOfTheDayScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF8D291674E500163436 /* QuotesOfTheDayScreenProtocols.swift */; };
 		CC5ADF90291674F900163436 /* QuotesOfTheDayScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF8F291674F900163436 /* QuotesOfTheDayScreenAssembly.swift */; };
 		CC5ADF922916751100163436 /* QuotesOfTheDayScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF912916751100163436 /* QuotesOfTheDayScreenViewController.swift */; };
@@ -35,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenInteractor.swift; sourceTree = "<group>"; };
+		CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
+		CC116C9E2917A09D00BDF7F5 /* StartScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenRouter.swift; sourceTree = "<group>"; };
+		CC116CA02917A0A600BDF7F5 /* StartScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenWorker.swift; sourceTree = "<group>"; };
+		CC116CA22917A0B300BDF7F5 /* StartScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenProtocols.swift; sourceTree = "<group>"; };
+		CC116CA42917A0BD00BDF7F5 /* StartScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenAssembly.swift; sourceTree = "<group>"; };
 		CC5ADF8D291674E500163436 /* QuotesOfTheDayScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenProtocols.swift; sourceTree = "<group>"; };
 		CC5ADF8F291674F900163436 /* QuotesOfTheDayScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenAssembly.swift; sourceTree = "<group>"; };
 		CC5ADF912916751100163436 /* QuotesOfTheDayScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +89,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC116C972917A05000BDF7F5 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */,
+				CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */,
+				CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */,
+				CC116C9E2917A09D00BDF7F5 /* StartScreenRouter.swift */,
+				CC116CA02917A0A600BDF7F5 /* StartScreenWorker.swift */,
+				CC116CA22917A0B300BDF7F5 /* StartScreenProtocols.swift */,
+				CC116CA42917A0BD00BDF7F5 /* StartScreenAssembly.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
 		CC5ADF8B2916741C00163436 /* QuotesOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +203,7 @@
 		CCAD8DF02908B7800037AA0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CC116C972917A05000BDF7F5 /* Start */,
 				CC5ADF8B2916741C00163436 /* QuotesOfTheDay */,
 				CCAD8DF72908B88C0037AA0F /* Main */,
 			);
@@ -278,17 +307,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAD8DF92908B8A30037AA0F /* MainScreenRouter.swift in Sources */,
+				CC116C9F2917A09D00BDF7F5 /* StartScreenRouter.swift in Sources */,
 				CCE9176529174E8300B1BC29 /* UIViewAsImage.swift in Sources */,
 				CCAD8DF42908B8030037AA0F /* MainScreenAssembly.swift in Sources */,
 				CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */,
+				CC116C9D2917A09200BDF7F5 /* StartScreenPresenter.swift in Sources */,
 				CC5ADF962916754400163436 /* QuotesOfTheDayScreenPresenter.swift in Sources */,
 				CC917AC8290B115100D19492 /* NetworkWorker.swift in Sources */,
 				CCA49AF629116036009F9F23 /* QuoteCell.swift in Sources */,
 				CC5ADF942916753900163436 /* QuotesOfTheDayScreenInteractor.swift in Sources */,
 				CCAD8DFD2908B8D40037AA0F /* MainScreenPresenter.swift in Sources */,
+				CC116C992917A07B00BDF7F5 /* StartScreenViewController.swift in Sources */,
 				CC7939AC290A11A0006CD36F /* QuotesModel.swift in Sources */,
 				CC5ADF90291674F900163436 /* QuotesOfTheDayScreenAssembly.swift in Sources */,
 				CC917ACC290B18A900D19492 /* PersistenceWorker.swift in Sources */,
+				CC116CA52917A0BD00BDF7F5 /* StartScreenAssembly.swift in Sources */,
+				CC116C9B2917A08400BDF7F5 /* StartScreenInteractor.swift in Sources */,
 				CC5ADF8E291674E500163436 /* QuotesOfTheDayScreenProtocols.swift in Sources */,
 				CCAD8DF62908B81B0037AA0F /* MainScreenProtocols.swift in Sources */,
 				CC5ADF922916751100163436 /* QuotesOfTheDayScreenViewController.swift in Sources */,
@@ -296,8 +330,10 @@
 				CC5ADF982916756E00163436 /* QuotesOfTheDayScreenRouter.swift in Sources */,
 				CCAD8DDD2908B76A0037AA0F /* AppDelegate.swift in Sources */,
 				CCAD8DFF2908B8DD0037AA0F /* MainScreenWorker.swift in Sources */,
+				CC116CA12917A0A600BDF7F5 /* StartScreenWorker.swift in Sources */,
 				CCE917672917668500B1BC29 /* QuoteView.swift in Sources */,
 				CCAD8DFB2908B8C30037AA0F /* MainScreenInteractor.swift in Sources */,
+				CC116CA32917A0B300BDF7F5 /* StartScreenProtocols.swift in Sources */,
 				CCA49AF8291164DD009F9F23 /* UIViewExt.swift in Sources */,
 				CCAD8DDF2908B76A0037AA0F /* SceneDelegate.swift in Sources */,
 				CCAD8DF22908B7D20037AA0F /* MainScreenViewController.swift in Sources */,

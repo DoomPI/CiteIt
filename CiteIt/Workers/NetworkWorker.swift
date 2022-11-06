@@ -28,6 +28,9 @@ struct NetworkWorker: NetworkWorking {
                     }
                 } else {
                     print("Could not get any content")
+                    DispatchQueue.main.async {
+                        completion(nil)
+                    }
                 }
             }
 

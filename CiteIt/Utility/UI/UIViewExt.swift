@@ -39,11 +39,10 @@ extension UIView {
     }
     
     func pin(to superview : UIView) {
-        translatesAutoresizingMaskIntoConstraints = false
         pinTop(to: superview)
         pinLeft(to: superview)
-        pinRight(to: superview)
         pinBottom(to: superview)
+        pinRight(to: superview)
     }
     
     func pin(to superView: UIView, _ sides: [PinnedSide: Double]) {

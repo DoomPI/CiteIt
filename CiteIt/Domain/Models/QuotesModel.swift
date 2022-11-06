@@ -11,9 +11,7 @@ enum QuotesModel {
     
     enum GetQuotesList {
         struct Request {}
-        struct Response {
-            var qoutesList: [Quote]
-        }
+        typealias Response = [Quote]
         struct ViewModel {
             var quotesList: [Quote]
         }
@@ -21,9 +19,15 @@ enum QuotesModel {
     
     enum GetQuoteOfTheDay {
         struct Request {}
-        struct Response {
-            var quote: [Quote]
+        typealias Response = [Quote]
+        struct ViewModel {
+            var quote: Quote
         }
+    }
+    
+    enum RandomQuote {
+        struct Request {}
+        typealias Response = [Quote]
         struct ViewModel {
             var quote: Quote
         }
