@@ -5,11 +5,11 @@
 //  Created by Роман Ломтев on 26.10.2022.
 //
 
-import UIKit
+import SwiftUI
 
 enum MainScreenAssembly {
     
-    static func build() -> UIViewController {
+    static func build() -> UIHostingController<MainScreenView> {
         
         let presenter = MainScreenPresenter()
         let worker = MainScreenWorker()

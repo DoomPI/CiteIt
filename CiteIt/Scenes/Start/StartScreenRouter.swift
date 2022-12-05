@@ -5,12 +5,12 @@
 //  Created by Роман Ломтев on 06.11.2022.
 //
 
-import UIKit
+import SwiftUI
 
 class StartScreenRouter {
     
     // MARK: - External vars
-    weak var viewController: UIViewController?
+    weak var viewController: UIHostingController<StartScreenView>?
 }
 
 extension StartScreenRouter: StartScreenRoutingLogic {

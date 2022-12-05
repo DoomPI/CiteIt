@@ -5,22 +5,20 @@
 //  Created by Роман Ломтев on 06.11.2022.
 //
 
-import UIKit
+import SwiftUI
 
-class StartScreenViewController: UIViewController {
+class StartScreenViewController: UIHostingController<StartScreenView> {
     
     // MARK: - Internal vars
     private let interactor: StartScreenBusinessLogic
     private let router: StartScreenRoutingLogic
     
-    private let quoteLabel = UILabel()
-    
     // MARK: - Init
-    init(interactor: StartScreenBusinessLogic, router: StartScreenRoutingLogic) {
+    init(view: StartScreenView, interactor: StartScreenBusinessLogic, router: StartScreenRoutingLogic) {
         self.interactor = interactor
         self.router = router
         
-        super.init(nibName: nil, bundle: nil)
+        super.init(rootView: view)
     }
     
     @available(*, unavailable)
@@ -41,7 +39,7 @@ class StartScreenViewController: UIViewController {
     }
     
     private func setupQuoteLabel() {
-        quoteLabel.font = UIFont(name: "sans-serif", size: 20)
+        /*quoteLabel.font = UIFont(name: "sans-serif", size: 20)
         quoteLabel.textColor = .white
         quoteLabel.textAlignment = .center
         quoteLabel.numberOfLines = 0
@@ -50,17 +48,17 @@ class StartScreenViewController: UIViewController {
         quoteLabel.pinTop(to: view)
         quoteLabel.pinBottom(to: view)
         quoteLabel.pinLeading(to: view, 16)
-        quoteLabel.pinTrailing(to: view, 16)
+        quoteLabel.pinTrailing(to: view, 16)*/
     }
 }
 
 extension StartScreenViewController: StartScreenDisplayLogic {
     
     func display(viewModel: Model.RandomQuote.ViewModel) {
-        quoteLabel.text = viewModel.quote.text
+        rootView.showQuote(quote: viewModel.quote.text)
     }
     
     func display() {
-        quoteLabel.text = "Oooopsss..."
+        rootView.showQuote(quote: "Oooopss")
     }
 }
