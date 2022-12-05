@@ -11,11 +11,13 @@ typealias Model = QuotesModel
 
 struct StartScreenView: View {
     
+    var navigateToMainScreenAction: () -> Void
+    
     @ObservedObject
     var observedObject = StartScreenObservable()
     
     @State
-    private var offset: CGFloat = 600
+    private var showContinueButtonState = false
     
     private let backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
     
@@ -25,18 +27,26 @@ struct StartScreenView: View {
             Color(backgroundColor)
                 .edgesIgnoringSafeArea(.all)
             
-            RandomQuoteView()
+            RandomQuoteView(showContinueButtonState: $showContinueButtonState)
                 .environmentObject(observedObject)
-                .offset(y: offset)
-                .animation(.interpolatingSpring(
-                    stiffness: 7,
-                    damping: 3)
-                    .delay(0.3),
-                    value: offset
-                )
-                .onAppear {
-                    offset = 0
-                }
+            
+            VStack {
+                Spacer()
+                Button(action: navigateToMainScreenAction) {
+                    Image(systemName: "chevron.right.circle")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 60)
+                }.foregroundColor(.white)
+                    .disabled(!showContinueButtonState)
+                    .opacity(showContinueButtonState ? 1 : 0)
+                    .padding(20)
+            }
+        }
+        .onAppear {
+            for font in UIFont.familyNames {
+                print(font)
+            }
         }
     }
     
@@ -44,11 +54,5 @@ struct StartScreenView: View {
         self.observedObject.quoteText = quoteViewModel.quote.text
         self.observedObject.quoteAuthor = quoteViewModel.quote.author
         self.observedObject.showQuoteState = true
-    }
-}
-
-struct StartScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        StartScreenView(observedObject: StartScreenObservable())
     }
 }

@@ -21,6 +21,7 @@
 		CC5ADF962916754400163436 /* QuotesOfTheDayScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF952916754400163436 /* QuotesOfTheDayScreenPresenter.swift */; };
 		CC5ADF982916756E00163436 /* QuotesOfTheDayScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF972916756E00163436 /* QuotesOfTheDayScreenRouter.swift */; };
 		CC5ADF9A2916757B00163436 /* QuotesOfTheDayScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF992916757B00163436 /* QuotesOfTheDayScreenWorker.swift */; };
+		CC614330293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC61432F293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf */; };
 		CC7939AC290A11A0006CD36F /* QuotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7939AB290A11A0006CD36F /* QuotesModel.swift */; };
 		CC8034B2293D53D70030BEB8 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B1293D53D70030BEB8 /* StartScreenView.swift */; };
 		CC8034B5293D5CF80030BEB8 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B4293D5CF80030BEB8 /* QuoteView.swift */; };
@@ -60,6 +61,7 @@
 		CC5ADF952916754400163436 /* QuotesOfTheDayScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenPresenter.swift; sourceTree = "<group>"; };
 		CC5ADF972916756E00163436 /* QuotesOfTheDayScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenRouter.swift; sourceTree = "<group>"; };
 		CC5ADF992916757B00163436 /* QuotesOfTheDayScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenWorker.swift; sourceTree = "<group>"; };
+		CC61432F293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LittlemomentRegular-OVneP.otf"; path = "../../../../../Downloads/little-moment-font/LittlemomentRegular-OVneP.otf"; sourceTree = "<group>"; };
 		CC7939AB290A11A0006CD36F /* QuotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesModel.swift; sourceTree = "<group>"; };
 		CC8034B1293D53D70030BEB8 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
 		CC8034B4293D5CF80030BEB8 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CC8034BE293DC85A0030BEB8 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CC61432F293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		CC917AC6290B113C00D19492 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +218,7 @@
 		CCAD8DDB2908B76A0037AA0F /* CiteIt */ = {
 			isa = PBXGroup;
 			children = (
+				CC8034BE293DC85A0030BEB8 /* Font */,
 				CCA49AF2291153B8009F9F23 /* Utility */,
 				CC917AD0290B87EA00D19492 /* Domain */,
 				CC917AC6290B113C00D19492 /* Workers */,
@@ -316,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAD8DE62908B76C0037AA0F /* Assets.xcassets in Resources */,
+				CC614330293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
