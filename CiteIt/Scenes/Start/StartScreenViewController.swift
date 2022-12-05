@@ -27,38 +27,22 @@ class StartScreenViewController: UIHostingController<StartScreenView> {
     }
     
     override func viewDidLoad() {
-        setupUI()
-        
-        interactor.fetchRandomQuote()
-    }
-    
-    private func setupUI() {
-        view.backgroundColor = .purple
-        
-        setupQuoteLabel()
-    }
-    
-    private func setupQuoteLabel() {
-        /*quoteLabel.font = UIFont(name: "sans-serif", size: 20)
-        quoteLabel.textColor = .white
-        quoteLabel.textAlignment = .center
-        quoteLabel.numberOfLines = 0
-        
-        view.addSubview(quoteLabel)
-        quoteLabel.pinTop(to: view)
-        quoteLabel.pinBottom(to: view)
-        quoteLabel.pinLeading(to: view, 16)
-        quoteLabel.pinTrailing(to: view, 16)*/
+       interactor.fetchRandomQuote()
     }
 }
 
 extension StartScreenViewController: StartScreenDisplayLogic {
     
     func display(viewModel: Model.RandomQuote.ViewModel) {
-        rootView.showQuote(quote: viewModel.quote.text)
+        rootView.showQuote(quoteViewModel: viewModel)
     }
     
     func display() {
-        rootView.showQuote(quote: "Oooopss")
+        rootView.showQuote(quoteViewModel: Model.RandomQuote.ViewModel(
+            quote: Model.Quote(
+                text: "Oooopsss",
+                author: ""
+            )
+        ))
     }
 }

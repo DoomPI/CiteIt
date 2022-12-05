@@ -10,8 +10,7 @@ import SwiftUI
 enum StartScreenAssembly {
     
     static func build() -> UIHostingController<StartScreenView> {
-        let observable = StartScreenObservable()
-        let view = StartScreenView(observedObject: observable)
+        let view = StartScreenView()
         let presenter = StartScreenPresenter()
         let worker = StartScreenWorker()
         let interactor = StartScreenInteractor(presenter: presenter, worker: worker)

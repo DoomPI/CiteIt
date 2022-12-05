@@ -26,6 +26,7 @@
 		CC8034B5293D5CF80030BEB8 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B4293D5CF80030BEB8 /* QuoteView.swift */; };
 		CC8034B7293D63C30030BEB8 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B6293D63C30030BEB8 /* MainScreenView.swift */; };
 		CC8034B9293D7C3A0030BEB8 /* StartScreenObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B8293D7C3A0030BEB8 /* StartScreenObservable.swift */; };
+		CC8034BB293D84F60030BEB8 /* RandomQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034BA293D84F60030BEB8 /* RandomQuoteView.swift */; };
 		CC917AC8290B115100D19492 /* NetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917AC7290B115100D19492 /* NetworkWorker.swift */; };
 		CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917AC9290B128D00D19492 /* WorkersProtocols.swift */; };
 		CC917ACC290B18A900D19492 /* PersistenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917ACB290B18A900D19492 /* PersistenceWorker.swift */; };
@@ -64,6 +65,7 @@
 		CC8034B4293D5CF80030BEB8 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		CC8034B6293D63C30030BEB8 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
 		CC8034B8293D7C3A0030BEB8 /* StartScreenObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenObservable.swift; sourceTree = "<group>"; };
+		CC8034BA293D84F60030BEB8 /* RandomQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuoteView.swift; sourceTree = "<group>"; };
 		CC917AC7290B115100D19492 /* NetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWorker.swift; sourceTree = "<group>"; };
 		CC917AC9290B128D00D19492 /* WorkersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersProtocols.swift; sourceTree = "<group>"; };
 		CC917ACB290B18A900D19492 /* PersistenceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceWorker.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				CC8034B1293D53D70030BEB8 /* StartScreenView.swift */,
+				CC8034BA293D84F60030BEB8 /* RandomQuoteView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				CC116C992917A07B00BDF7F5 /* StartScreenViewController.swift in Sources */,
 				CC7939AC290A11A0006CD36F /* QuotesModel.swift in Sources */,
 				CC5ADF90291674F900163436 /* QuotesOfTheDayScreenAssembly.swift in Sources */,
+				CC8034BB293D84F60030BEB8 /* RandomQuoteView.swift in Sources */,
 				CC917ACC290B18A900D19492 /* PersistenceWorker.swift in Sources */,
 				CC116CA52917A0BD00BDF7F5 /* StartScreenAssembly.swift in Sources */,
 				CC116C9B2917A08400BDF7F5 /* StartScreenInteractor.swift in Sources */,
