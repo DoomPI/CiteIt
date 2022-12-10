@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC116C992917A07B00BDF7F5 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */; };
+		CC116C9B2917A08400BDF7F5 /* StartScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */; };
+		CC116C9D2917A09200BDF7F5 /* StartScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */; };
+		CC116C9F2917A09D00BDF7F5 /* StartScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9E2917A09D00BDF7F5 /* StartScreenRouter.swift */; };
+		CC116CA12917A0A600BDF7F5 /* StartScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116CA02917A0A600BDF7F5 /* StartScreenWorker.swift */; };
+		CC116CA32917A0B300BDF7F5 /* StartScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116CA22917A0B300BDF7F5 /* StartScreenProtocols.swift */; };
+		CC116CA52917A0BD00BDF7F5 /* StartScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116CA42917A0BD00BDF7F5 /* StartScreenAssembly.swift */; };
 		CC5ADF8E291674E500163436 /* QuotesOfTheDayScreenProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF8D291674E500163436 /* QuotesOfTheDayScreenProtocols.swift */; };
 		CC5ADF90291674F900163436 /* QuotesOfTheDayScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF8F291674F900163436 /* QuotesOfTheDayScreenAssembly.swift */; };
 		CC5ADF922916751100163436 /* QuotesOfTheDayScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF912916751100163436 /* QuotesOfTheDayScreenViewController.swift */; };
@@ -14,7 +21,13 @@
 		CC5ADF962916754400163436 /* QuotesOfTheDayScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF952916754400163436 /* QuotesOfTheDayScreenPresenter.swift */; };
 		CC5ADF982916756E00163436 /* QuotesOfTheDayScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF972916756E00163436 /* QuotesOfTheDayScreenRouter.swift */; };
 		CC5ADF9A2916757B00163436 /* QuotesOfTheDayScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC5ADF992916757B00163436 /* QuotesOfTheDayScreenWorker.swift */; };
+		CC614330293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC61432F293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf */; };
 		CC7939AC290A11A0006CD36F /* QuotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7939AB290A11A0006CD36F /* QuotesModel.swift */; };
+		CC8034B2293D53D70030BEB8 /* StartScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B1293D53D70030BEB8 /* StartScreenView.swift */; };
+		CC8034B5293D5CF80030BEB8 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B4293D5CF80030BEB8 /* QuoteView.swift */; };
+		CC8034B7293D63C30030BEB8 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B6293D63C30030BEB8 /* MainScreenView.swift */; };
+		CC8034B9293D7C3A0030BEB8 /* StartScreenObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034B8293D7C3A0030BEB8 /* StartScreenObservable.swift */; };
+		CC8034BB293D84F60030BEB8 /* RandomQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8034BA293D84F60030BEB8 /* RandomQuoteView.swift */; };
 		CC917AC8290B115100D19492 /* NetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917AC7290B115100D19492 /* NetworkWorker.swift */; };
 		CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917AC9290B128D00D19492 /* WorkersProtocols.swift */; };
 		CC917ACC290B18A900D19492 /* PersistenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917ACB290B18A900D19492 /* PersistenceWorker.swift */; };
@@ -31,10 +44,16 @@
 		CCAD8DFD2908B8D40037AA0F /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DFC2908B8D40037AA0F /* MainScreenPresenter.swift */; };
 		CCAD8DFF2908B8DD0037AA0F /* MainScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DFE2908B8DD0037AA0F /* MainScreenWorker.swift */; };
 		CCE9176529174E8300B1BC29 /* UIViewAsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */; };
-		CCE917672917668500B1BC29 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE917662917668500B1BC29 /* QuoteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenInteractor.swift; sourceTree = "<group>"; };
+		CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
+		CC116C9E2917A09D00BDF7F5 /* StartScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenRouter.swift; sourceTree = "<group>"; };
+		CC116CA02917A0A600BDF7F5 /* StartScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenWorker.swift; sourceTree = "<group>"; };
+		CC116CA22917A0B300BDF7F5 /* StartScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenProtocols.swift; sourceTree = "<group>"; };
+		CC116CA42917A0BD00BDF7F5 /* StartScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenAssembly.swift; sourceTree = "<group>"; };
 		CC5ADF8D291674E500163436 /* QuotesOfTheDayScreenProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenProtocols.swift; sourceTree = "<group>"; };
 		CC5ADF8F291674F900163436 /* QuotesOfTheDayScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenAssembly.swift; sourceTree = "<group>"; };
 		CC5ADF912916751100163436 /* QuotesOfTheDayScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +61,13 @@
 		CC5ADF952916754400163436 /* QuotesOfTheDayScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenPresenter.swift; sourceTree = "<group>"; };
 		CC5ADF972916756E00163436 /* QuotesOfTheDayScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenRouter.swift; sourceTree = "<group>"; };
 		CC5ADF992916757B00163436 /* QuotesOfTheDayScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesOfTheDayScreenWorker.swift; sourceTree = "<group>"; };
+		CC61432F293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LittlemomentRegular-OVneP.otf"; path = "../../../../../Downloads/little-moment-font/LittlemomentRegular-OVneP.otf"; sourceTree = "<group>"; };
 		CC7939AB290A11A0006CD36F /* QuotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesModel.swift; sourceTree = "<group>"; };
+		CC8034B1293D53D70030BEB8 /* StartScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenView.swift; sourceTree = "<group>"; };
+		CC8034B4293D5CF80030BEB8 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		CC8034B6293D63C30030BEB8 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		CC8034B8293D7C3A0030BEB8 /* StartScreenObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenObservable.swift; sourceTree = "<group>"; };
+		CC8034BA293D84F60030BEB8 /* RandomQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomQuoteView.swift; sourceTree = "<group>"; };
 		CC917AC7290B115100D19492 /* NetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWorker.swift; sourceTree = "<group>"; };
 		CC917AC9290B128D00D19492 /* WorkersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersProtocols.swift; sourceTree = "<group>"; };
 		CC917ACB290B18A900D19492 /* PersistenceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceWorker.swift; sourceTree = "<group>"; };
@@ -61,7 +86,6 @@
 		CCAD8DFC2908B8D40037AA0F /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
 		CCAD8DFE2908B8DD0037AA0F /* MainScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenWorker.swift; sourceTree = "<group>"; };
 		CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAsImage.swift; sourceTree = "<group>"; };
-		CCE917662917668500B1BC29 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +99,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC116C972917A05000BDF7F5 /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				CC8034B3293D5CA00030BEB8 /* Views */,
+				CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */,
+				CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */,
+				CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */,
+				CC116C9E2917A09D00BDF7F5 /* StartScreenRouter.swift */,
+				CC116CA02917A0A600BDF7F5 /* StartScreenWorker.swift */,
+				CC116CA22917A0B300BDF7F5 /* StartScreenProtocols.swift */,
+				CC116CA42917A0BD00BDF7F5 /* StartScreenAssembly.swift */,
+				CC8034B8293D7C3A0030BEB8 /* StartScreenObservable.swift */,
+			);
+			path = Start;
+			sourceTree = "<group>";
+		};
 		CC5ADF8B2916741C00163436 /* QuotesOfTheDay */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +135,23 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CC8034B3293D5CA00030BEB8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CC8034B1293D53D70030BEB8 /* StartScreenView.swift */,
+				CC8034BA293D84F60030BEB8 /* RandomQuoteView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CC8034BE293DC85A0030BEB8 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CC61432F293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		CC917AC6290B113C00D19492 /* Workers */ = {
@@ -135,8 +192,9 @@
 		CCA49AF429115FD8009F9F23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CC8034B4293D5CF80030BEB8 /* QuoteView.swift */,
 				CCA49AF529116036009F9F23 /* QuoteCell.swift */,
-				CCE917662917668500B1BC29 /* QuoteView.swift */,
+				CC8034B6293D63C30030BEB8 /* MainScreenView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +218,7 @@
 		CCAD8DDB2908B76A0037AA0F /* CiteIt */ = {
 			isa = PBXGroup;
 			children = (
+				CC8034BE293DC85A0030BEB8 /* Font */,
 				CCA49AF2291153B8009F9F23 /* Utility */,
 				CC917AD0290B87EA00D19492 /* Domain */,
 				CC917AC6290B113C00D19492 /* Workers */,
@@ -175,6 +234,7 @@
 		CCAD8DF02908B7800037AA0F /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CC116C972917A05000BDF7F5 /* Start */,
 				CC5ADF8B2916741C00163436 /* QuotesOfTheDay */,
 				CCAD8DF72908B88C0037AA0F /* Main */,
 			);
@@ -267,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAD8DE62908B76C0037AA0F /* Assets.xcassets in Resources */,
+				CC614330293DC94D00FC3CE6 /* LittlemomentRegular-OVneP.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,17 +339,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAD8DF92908B8A30037AA0F /* MainScreenRouter.swift in Sources */,
+				CC116C9F2917A09D00BDF7F5 /* StartScreenRouter.swift in Sources */,
 				CCE9176529174E8300B1BC29 /* UIViewAsImage.swift in Sources */,
 				CCAD8DF42908B8030037AA0F /* MainScreenAssembly.swift in Sources */,
 				CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */,
+				CC116C9D2917A09200BDF7F5 /* StartScreenPresenter.swift in Sources */,
 				CC5ADF962916754400163436 /* QuotesOfTheDayScreenPresenter.swift in Sources */,
+				CC8034B7293D63C30030BEB8 /* MainScreenView.swift in Sources */,
 				CC917AC8290B115100D19492 /* NetworkWorker.swift in Sources */,
 				CCA49AF629116036009F9F23 /* QuoteCell.swift in Sources */,
 				CC5ADF942916753900163436 /* QuotesOfTheDayScreenInteractor.swift in Sources */,
 				CCAD8DFD2908B8D40037AA0F /* MainScreenPresenter.swift in Sources */,
+				CC116C992917A07B00BDF7F5 /* StartScreenViewController.swift in Sources */,
 				CC7939AC290A11A0006CD36F /* QuotesModel.swift in Sources */,
 				CC5ADF90291674F900163436 /* QuotesOfTheDayScreenAssembly.swift in Sources */,
+				CC8034BB293D84F60030BEB8 /* RandomQuoteView.swift in Sources */,
 				CC917ACC290B18A900D19492 /* PersistenceWorker.swift in Sources */,
+				CC116CA52917A0BD00BDF7F5 /* StartScreenAssembly.swift in Sources */,
+				CC116C9B2917A08400BDF7F5 /* StartScreenInteractor.swift in Sources */,
 				CC5ADF8E291674E500163436 /* QuotesOfTheDayScreenProtocols.swift in Sources */,
 				CCAD8DF62908B81B0037AA0F /* MainScreenProtocols.swift in Sources */,
 				CC5ADF922916751100163436 /* QuotesOfTheDayScreenViewController.swift in Sources */,
@@ -296,8 +364,12 @@
 				CC5ADF982916756E00163436 /* QuotesOfTheDayScreenRouter.swift in Sources */,
 				CCAD8DDD2908B76A0037AA0F /* AppDelegate.swift in Sources */,
 				CCAD8DFF2908B8DD0037AA0F /* MainScreenWorker.swift in Sources */,
-				CCE917672917668500B1BC29 /* QuoteView.swift in Sources */,
+				CC8034B9293D7C3A0030BEB8 /* StartScreenObservable.swift in Sources */,
+				CC116CA12917A0A600BDF7F5 /* StartScreenWorker.swift in Sources */,
+				CC8034B2293D53D70030BEB8 /* StartScreenView.swift in Sources */,
 				CCAD8DFB2908B8C30037AA0F /* MainScreenInteractor.swift in Sources */,
+				CC8034B5293D5CF80030BEB8 /* QuoteView.swift in Sources */,
+				CC116CA32917A0B300BDF7F5 /* StartScreenProtocols.swift in Sources */,
 				CCA49AF8291164DD009F9F23 /* UIViewExt.swift in Sources */,
 				CCAD8DDF2908B76A0037AA0F /* SceneDelegate.swift in Sources */,
 				CCAD8DF22908B7D20037AA0F /* MainScreenViewController.swift in Sources */,
