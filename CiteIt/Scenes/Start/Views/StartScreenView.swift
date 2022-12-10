@@ -14,7 +14,7 @@ struct StartScreenView: View {
     var navigateToMainScreenAction: () -> Void
     
     @ObservedObject
-    var observedObject = StartScreenObservable()
+    var observedObject: StartScreenObservable
     
     @State
     private var showContinueButtonState = false
@@ -41,11 +41,6 @@ struct StartScreenView: View {
                     .disabled(!showContinueButtonState)
                     .opacity(showContinueButtonState ? 1 : 0)
                     .padding(20)
-            }
-        }
-        .onAppear {
-            for font in UIFont.familyNames {
-                print(font)
             }
         }
     }

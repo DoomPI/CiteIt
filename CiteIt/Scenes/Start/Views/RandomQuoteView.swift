@@ -18,6 +18,12 @@ struct RandomQuoteView: View {
     @State
     private var offset: CGFloat = 600
     
+    @State
+    private var quoteText: String = ""
+    
+    @State
+    private var quoteAuthor: String = ""
+    
     var body: some View {
         VStack(spacing: 30) {
             HStack {
@@ -53,6 +59,7 @@ struct RandomQuoteView: View {
             RoundedRectangle(cornerRadius: 16)
                 .stroke(.white, lineWidth: 7)
         )
+        .padding([.leading, .trailing], 10)
         .cornerRadius(10)
         .offset(y: offset)
         .animation(
@@ -62,12 +69,19 @@ struct RandomQuoteView: View {
             ).delay(0.3),
             value: offset
         )
+        .onReceive(observedObject.$quoteText) { newQuoteText in
+            self.quoteText = newQuoteText
+        }
+        .onReceive(observedObject.$quoteAuthor) { newQuoteAuthor in
+            self.quoteAuthor = newQuoteAuthor
+        }
+        .onReceive(observedObject.$showQuoteState) { _ in
+            self.offset = 0
+        }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 showContinueButtonState = true
             }
-            offset = 0
         }
-        .padding([.leading, .trailing], 10)
     }
 }
