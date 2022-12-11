@@ -20,14 +20,14 @@ class MainScreenInteractor {
 extension MainScreenInteractor: MainScreenBusinessLogic {
     
     func fetchQuotes() {
-        worker.getQuotes(Model.GetQuotesList.Request()) { [weak self] quotes in
-            self?.presenter.present(quotesList: quotes)
-        }
-    }
-    
-    func showQuotes() {
-        worker.loadQuotes { [weak self] quotes in
-            self?.presenter.present(quotesList: quotes)
-        }
+        worker.getQuotesList(
+            Model.GetQuotesList.Request(),
+            didSucceed: { [weak self] quotes in
+                self?.presenter.present(quotesList: quotes)
+            },
+            didFail: {
+                
+            }
+        )
     }
 }

@@ -16,6 +16,10 @@ class StartScreenRouter {
 extension StartScreenRouter: StartScreenRoutingLogic {
     
     func navigateToMainScreen() {
-        viewController?.navigationController?.present(MainScreenAssembly.build(), animated: true)
+        viewController?.dismiss(animated: false) {
+            let mainScreenVC = MainScreenAssembly.build()
+            mainScreenVC.modalPresentationStyle = .fullScreen
+            self.viewController?.navigationController?.present(mainScreenVC, animated: true)
+        }
     }
 }

@@ -18,7 +18,6 @@ protocol MainScreenPresentationLogic {
 protocol MainScreenBusinessLogic {
     typealias Model = QuotesModel
     func fetchQuotes()
-    func showQuotes()
 }
 
 protocol MainScreenRoutingLogic {
@@ -27,6 +26,11 @@ protocol MainScreenRoutingLogic {
 
 protocol MainScreenWorkingLogic {
     typealias Model = QuotesModel
-    func getQuotes(_ request: Model.GetQuotesList.Request, completion: @escaping ([Model.Quote]) -> ())
-    func loadQuotes(completion: @escaping ([Model.Quote]) -> ())
+    func getQuotesList(_ request: Model.GetQuotesList.Request,
+                       didSucceed: @escaping (Model.GetQuotesList.Response) -> (),
+                       didFail: @escaping () -> ()
+    )
+    func loadQuotesList(didSucceed: @escaping (Model.GetQuotesList.Response) -> (),
+                        didFail: @escaping () -> ()
+    )
 }

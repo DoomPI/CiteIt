@@ -27,14 +27,7 @@ class MainScreenViewController: UIHostingController<MainScreenView> {
     }
     
     override func viewDidLoad() {
-        setupUI()
-        
         interactor.fetchQuotes()
-        interactor.showQuotes()
-    }
-    
-    private func setupUI() {
-        
     }
 }
 

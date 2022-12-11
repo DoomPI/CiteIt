@@ -13,9 +13,9 @@ class StartScreenPresenter {
 
 extension StartScreenPresenter: StartScreenPresentationLogic {
     
-    func presentRandomQuote(quotesList: Model.RandomQuote.Response) {
+    func presentRandomQuote(quotesList: Model.GetRandomQuote.Response) {
         let data = quotesList[0]
-        viewController?.display(viewModel: Model.RandomQuote.ViewModel(quote: data))
+        viewController?.display(viewModel: Model.GetRandomQuote.ViewModel(quote: data))
     }
     
     func present() {

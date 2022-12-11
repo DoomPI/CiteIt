@@ -19,7 +19,10 @@ struct StartScreenView: View {
     @State
     private var showContinueButtonState = false
     
-    private let backgroundColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
+    @State
+    private var offset: CGFloat = 600
+    
+    private let backgroundColor = #colorLiteral(red: 0.9179173112, green: 0.3792040348, blue: 0.4323710203, alpha: 1)
     
     var body: some View {
         ZStack {
@@ -27,10 +30,10 @@ struct StartScreenView: View {
             Color(backgroundColor)
                 .edgesIgnoringSafeArea(.all)
             
-            RandomQuoteView(showContinueButtonState: $showContinueButtonState)
-                .environmentObject(observedObject)
-            
             VStack {
+                Spacer()
+                RandomQuoteView(showContinueButtonState: $showContinueButtonState)
+                    .environmentObject(observedObject)
                 Spacer()
                 Button(action: navigateToMainScreenAction) {
                     Image(systemName: "chevron.right.circle")
@@ -40,12 +43,21 @@ struct StartScreenView: View {
                 }.foregroundColor(.white)
                     .disabled(!showContinueButtonState)
                     .opacity(showContinueButtonState ? 1 : 0)
-                    .padding(20)
+                    .padding(10)
+                    .offset(y: 0)
+                    .rotationEffect(.degrees(showContinueButtonState ? -720: 0))
+                    .offset(y: showContinueButtonState ? 0 : 60)
+                    .animation(
+                        .spring(dampingFraction: 0.7)
+                        .delay(0.2)
+                        .speed(0.5),
+                        value: showContinueButtonState ? -600 : 0
+                    )
             }
         }
     }
     
-    func showQuote(quoteViewModel: Model.RandomQuote.ViewModel) {
+    func showQuote(quoteViewModel: Model.GetRandomQuote.ViewModel) {
         self.observedObject.quoteText = quoteViewModel.quote.text
         self.observedObject.quoteAuthor = quoteViewModel.quote.author
         self.observedObject.showQuoteState = true

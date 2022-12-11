@@ -16,71 +16,88 @@ struct RandomQuoteView: View {
     var showContinueButtonState: Bool
     
     @State
-    private var offset: CGFloat = 600
-    
-    @State
     private var quoteText: String = ""
     
     @State
     private var quoteAuthor: String = ""
     
+    @State
+    private var quoteTextDisplayed = ""
+    
+    @State
+    private var quoteAuthorDisplayed = ""
+    
     var body: some View {
-        VStack(spacing: 30) {
+        VStack(alignment: .leading, spacing: 70) {
+            Text(quoteTextDisplayed)
+                .lineSpacing(10)
+                .tracking(5)
+                .padding(5)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.white)
+                .font(.custom("Organic Peach DEMO", size: 40))
+
             HStack {
-                Image(systemName: "quote.opening")
-                    .font(.custom("Little Moment", size: 20))
+                Spacer()
+                Text(quoteAuthorDisplayed)
+                    .tracking(5)
                     .foregroundColor(.white)
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(height: 2)
-                    .overlay(.white)
-            }
-            VStack(spacing: 40) {
-                Text(observedObject.quoteText)
-                    .foregroundColor(.white)
-                    .font(.custom("Little Moment", size: 24))
-                HStack {
-                    Spacer()
-                    Text(observedObject.quoteAuthor)
-                        .foregroundColor(.white)
-                        .font(.custom("Little Moment", size: 14))
-                }
-            }
-            HStack {
-                RoundedRectangle(cornerRadius: 10)
-                    .frame(height: 2)
-                    .overlay(.white)
-                Image(systemName: "quote.closing")
-                    .font(.custom("Little Moment", size: 20))
-                    .foregroundColor(.white)
+                    .font(.custom("Organic Peach DEMO", size: 24))
+                    .padding(.trailing, 10)
             }
         }
         .padding(20)
-        .overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(.white, lineWidth: 7)
-        )
         .padding([.leading, .trailing], 10)
         .cornerRadius(10)
-        .offset(y: offset)
-        .animation(
-            .interpolatingSpring(
-                stiffness: 7,
-                damping: 3
-            ).delay(0.3),
-            value: offset
-        )
         .onReceive(observedObject.$quoteText) { newQuoteText in
             self.quoteText = newQuoteText
+            self.quoteTextDisplayed.reserveCapacity(newQuoteText.count)
+            for letter in newQuoteText {
+                if letter == " " {
+                    quoteTextDisplayed.append(" ")
+                } else {
+                    quoteTextDisplayed.append("\u{00A0}")
+                }
+            }
         }
         .onReceive(observedObject.$quoteAuthor) { newQuoteAuthor in
             self.quoteAuthor = newQuoteAuthor
+            self.quoteAuthorDisplayed.reserveCapacity(newQuoteAuthor.count)
+            self.quoteAuthorDisplayed = quoteAuthorDisplayed.padding(toLength: newQuoteAuthor.count, withPad: "\u{00A0}", startingAt: 0)
         }
-        .onReceive(observedObject.$showQuoteState) { _ in
-            self.offset = 0
+        .onReceive(observedObject.$showQuoteState) { newShowQuoteState in
+            if (newShowQuoteState) {
+                typingAnimation()
+            }
         }
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
                 showContinueButtonState = true
+            }
+        }
+    }
+    
+    private func typingAnimation() {
+        DispatchQueue.main.async {
+            for index in 0...quoteText.count - 1 {
+                let quoteTextIndex = quoteText.index(quoteText.startIndex, offsetBy: index)
+                let letter = quoteText[quoteTextIndex]
+                quoteTextDisplayed = quoteTextDisplayed.replacingCharacters(in: quoteTextIndex...quoteTextIndex, with: String(letter))
+                
+                if letter == "." || letter == "," {
+                    RunLoop.current.run(until: Date() + 0.5)
+                } else {
+                    RunLoop.current.run(until: Date() + 0.05)
+                }
+            }
+            
+            RunLoop.current.run(until: Date() + 0.5)
+            
+            for index in 0...quoteAuthor.count - 1 {
+                let quoteAuthorIndex = quoteAuthor.index(quoteAuthor.startIndex, offsetBy: index)
+    
+                quoteAuthorDisplayed = quoteAuthorDisplayed.replacingCharacters(in: quoteAuthorIndex...quoteAuthorIndex, with: String(quoteAuthor[quoteAuthorIndex]))
+                RunLoop.current.run(until: Date() + 0.05)
             }
         }
     }
