@@ -16,10 +16,7 @@ struct RandomQuoteView: View {
     var showContinueButtonState: Bool
     
     @State
-    private var quoteText: String = ""
-    
-    @State
-    private var quoteAuthor: String = ""
+    private var quoteViewModel = Model.GetRandomQuote.ViewModel.empty
     
     @State
     private var quoteTextDisplayed = ""
@@ -62,36 +59,41 @@ struct RandomQuoteView: View {
         .padding(20)
         .padding([.leading, .trailing], 10)
         .cornerRadius(10)
-        .onReceive(observedObject.$quoteText) { newQuoteText in
-            self.quoteText = newQuoteText
-            self.quoteTextDisplayed.reserveCapacity(newQuoteText.count)
-            for letter in newQuoteText {
+        .onReceive(observedObject.$quoteViewModel) { newQuoteViewModel in
+            
+            if (newQuoteViewModel == Model.GetRandomQuote.ViewModel.empty) {
+                return
+            }
+            
+            self.quoteViewModel = newQuoteViewModel
+            
+            let text = newQuoteViewModel.quote.text
+            let author = newQuoteViewModel.quote.author
+            
+            self.quoteTextDisplayed.reserveCapacity(text.count)
+            for letter in text {
                 if letter == " " {
                     quoteTextDisplayed.append(" ")
                 } else {
                     quoteTextDisplayed.append("\u{00A0}")
                 }
             }
-        }
-        .onReceive(observedObject.$quoteAuthor) { newQuoteAuthor in
-            self.quoteAuthor = newQuoteAuthor
-            self.quoteAuthorDisplayed.reserveCapacity(newQuoteAuthor.count)
-            self.quoteAuthorDisplayed = quoteAuthorDisplayed.padding(toLength: newQuoteAuthor.count, withPad: "\u{00A0}", startingAt: 0)
-        }
-        .onReceive(observedObject.$showQuoteState) { newShowQuoteState in
-            if (newShowQuoteState) {
-                typingAnimation()
-            }
-        }
-        .onAppear {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                showContinueButtonState = true
+            
+            self.quoteAuthorDisplayed.reserveCapacity(author.count)
+            self.quoteAuthorDisplayed = quoteAuthorDisplayed.padding(toLength: author.count, withPad: "\u{00A0}", startingAt: 0)
+            
+            typingAnimation {
+                self.showContinueButtonState = true
             }
         }
     }
     
-    private func typingAnimation() {
+    private func typingAnimation(completion: @escaping () -> Void) {
         DispatchQueue.main.async {
+            
+            let quoteText = quoteViewModel.quote.text
+            let quoteAuthor = quoteViewModel.quote.author
+            
             for index in 0...quoteText.count - 1 {
                 let quoteTextIndex = quoteText.index(quoteText.startIndex, offsetBy: index)
                 let letter = quoteText[quoteTextIndex]
@@ -112,6 +114,8 @@ struct RandomQuoteView: View {
                 quoteAuthorDisplayed = quoteAuthorDisplayed.replacingCharacters(in: quoteAuthorIndex...quoteAuthorIndex, with: String(quoteAuthor[quoteAuthorIndex]))
                 RunLoop.current.run(until: Date() + 0.05)
             }
+            
+            completion()
         }
     }
 }

@@ -16,14 +16,14 @@ struct QuoteView: View {
         systemName: "quote.closing"
     )
     
-    var text: String = "Cite it"
+    var quote: Model.Quote
     
     var body: some View {
         VStack() {
             quoteOpeningImage
                 .font(.system(size: 60))
             Spacer()
-            Text(text)
+            Text(quote.text)
             Spacer()
             quoteClosingImage
                 .font(.system(size: 60))
@@ -33,6 +33,9 @@ struct QuoteView: View {
 
 struct QuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        QuoteView()
+        QuoteView(quote: Model.Quote(
+            text: "Cite it",
+            author: ""
+        ))
     }
 }

@@ -61,8 +61,6 @@ struct StartScreenView: View {
     }
     
     func showQuote(quoteViewModel: Model.GetRandomQuote.ViewModel) {
-        self.observedObject.quoteText = quoteViewModel.quote.text
-        self.observedObject.quoteAuthor = quoteViewModel.quote.author
-        self.observedObject.showQuoteState = true
+        self.observedObject.quoteViewModel = quoteViewModel
     }
 }
