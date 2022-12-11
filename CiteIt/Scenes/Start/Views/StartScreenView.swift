@@ -31,10 +31,13 @@ struct StartScreenView: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                Spacer()
+                Color.clear.frame(height: 100)
+                
                 RandomQuoteView(showContinueButtonState: $showContinueButtonState)
                     .environmentObject(observedObject)
+                
                 Spacer()
+                
                 Button(action: navigateToMainScreenAction) {
                     Image(systemName: "chevron.right.circle")
                         .resizable()
