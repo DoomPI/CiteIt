@@ -33,12 +33,12 @@ class StartScreenViewController: UIHostingController<StartScreenView> {
 
 extension StartScreenViewController: StartScreenDisplayLogic {
     
-    func display(viewModel: Model.RandomQuote.ViewModel) {
+    func display(viewModel: Model.GetRandomQuote.ViewModel) {
         rootView.showQuote(quoteViewModel: viewModel)
     }
     
     func display() {
-        rootView.showQuote(quoteViewModel: Model.RandomQuote.ViewModel(
+        rootView.showQuote(quoteViewModel: Model.GetRandomQuote.ViewModel(
             quote: Model.Quote(
                 text: "Oooopsss",
                 author: ""

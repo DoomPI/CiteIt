@@ -17,8 +17,8 @@ class StartScreenWorker: StartScreenWorkingLogic {
     
     private let quotesListPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("randomQuote.json")
     
-    func getRandomQuote(_ request: Model.RandomQuote.Request,
-                        didSucceed: @escaping (Model.RandomQuote.Response) -> (),
+    func getRandomQuote(_ request: Model.GetRandomQuote.Request,
+                        didSucceed: @escaping (Model.GetRandomQuote.Response) -> (),
                         didFail: @escaping () -> ()
     ) {
         
@@ -27,7 +27,7 @@ class StartScreenWorker: StartScreenWorkingLogic {
                 if let data = networkData,
                    let quotesList = try?
                     self?.decoder.decode(
-                        Model.RandomQuote.Response.self,
+                        Model.GetRandomQuote.Response.self,
                         from: data
                     ) {
                     DispatchQueue.main.async {
@@ -45,7 +45,7 @@ class StartScreenWorker: StartScreenWorkingLogic {
         }
     }
     
-    func loadRandomQuote(didSucceed: @escaping (Model.RandomQuote.Response) -> (),
+    func loadRandomQuote(didSucceed: @escaping (Model.GetRandomQuote.Response) -> (),
                          didFail: @escaping () -> ()
     ) {
         Task { [weak self] in

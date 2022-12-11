@@ -10,20 +10,19 @@ import SwiftUI
 
 protocol StartScreenDisplayLogic: AnyObject {
     typealias Model = QuotesModel
-    func display(viewModel: Model.RandomQuote.ViewModel)
+    func display(viewModel: Model.GetRandomQuote.ViewModel)
     func display()
 }
 
 protocol StartScreenPresentationLogic {
     typealias Model = QuotesModel
-    func presentRandomQuote(quotesList: Model.RandomQuote.Response)
+    func presentRandomQuote(quotesList: Model.GetRandomQuote.Response)
     func present()
 }
 
 protocol StartScreenBusinessLogic {
     typealias Model = QuotesModel
     func fetchRandomQuote()
-    func loadRandomQuote()
 }
 
 protocol StartScreenRoutingLogic {
@@ -32,11 +31,11 @@ protocol StartScreenRoutingLogic {
 
 protocol StartScreenWorkingLogic {
     typealias Model = QuotesModel
-    func getRandomQuote(_ request: Model.RandomQuote.Request,
-                        didSucceed: @escaping (Model.RandomQuote.Response) -> (),
+    func getRandomQuote(_ request: Model.GetRandomQuote.Request,
+                        didSucceed: @escaping (Model.GetRandomQuote.Response) -> (),
                         didFail: @escaping () -> ()
     )
-    func loadRandomQuote(didSucceed: @escaping (Model.RandomQuote.Response) -> (),
+    func loadRandomQuote(didSucceed: @escaping (Model.GetRandomQuote.Response) -> (),
                          didFail: @escaping () -> ()
     )
 }

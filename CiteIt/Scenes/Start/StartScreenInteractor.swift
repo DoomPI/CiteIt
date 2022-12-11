@@ -23,18 +23,7 @@ extension StartScreenInteractor: StartScreenBusinessLogic {
     
     func fetchRandomQuote() {
         worker.getRandomQuote(
-            Model.RandomQuote.Request(),
-            didSucceed: { [weak self] quotes in
-                self?.presenter.presentRandomQuote(quotesList: quotes)
-            },
-            didFail: { [weak self] in
-                self?.presenter.present()
-            }
-        )
-    }
-    
-    func loadRandomQuote() {
-        worker.loadRandomQuote(
+            Model.GetRandomQuote.Request(),
             didSucceed: { [weak self] quotes in
                 self?.presenter.presentRandomQuote(quotesList: quotes)
             },

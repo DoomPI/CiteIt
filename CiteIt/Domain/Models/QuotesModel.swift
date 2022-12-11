@@ -25,7 +25,7 @@ enum QuotesModel {
         }
     }
     
-    enum RandomQuote {
+    enum GetRandomQuote {
         struct Request {}
         typealias Response = [Quote]
         struct ViewModel {
