@@ -27,22 +27,35 @@ struct RandomQuoteView: View {
     @State
     private var quoteAuthorDisplayed = ""
     
+    private var quoteTextView: some View {
+        Text(quoteTextDisplayed)
+            .lineSpacing(10)
+            .frame(alignment: .top)
+            .tracking(5)
+            .padding(5)
+            .multilineTextAlignment(.leading)
+            .foregroundColor(.white)
+            .font(.custom("Organic Peach DEMO", size: 30))
+    }
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 70) {
+        VStack(alignment: .leading, spacing: 60) {
+
             Text(quoteTextDisplayed)
                 .lineSpacing(10)
+                .frame(alignment: .top)
                 .tracking(5)
                 .padding(5)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)
-                .font(.custom("Organic Peach DEMO", size: 40))
-
+                .font(.custom("Organic Peach DEMO", size: 30))
+            
             HStack {
                 Spacer()
                 Text(quoteAuthorDisplayed)
                     .tracking(5)
                     .foregroundColor(.white)
-                    .font(.custom("Organic Peach DEMO", size: 24))
+                    .font(.custom("Organic Peach DEMO", size: 20))
                     .padding(.trailing, 10)
             }
         }
