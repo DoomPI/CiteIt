@@ -23,15 +23,18 @@ struct QuotesStackView: View {
             let count = quotesViewModel.quotesList.count
             
             ForEach(0 ..< count, id: \.self) { index in
+                
+                let reverseIndex: CGFloat = CGFloat(count) - CGFloat(index) - 1
+                
                 QuoteView(
                     quoteVo: quotesViewModel.quotesList[index],
                     quotesViewModel: $quotesViewModel
                 )
-                .hidden(Int(count) - Int(index) - 1 >= 3)
-                .offset(x: CGFloat(count - index - 1) * 20)
-                .padding(CGFloat(count - index - 1) * 20)
+                .hidden(reverseIndex >= 3)
+                .offset(x: reverseIndex * 20)
+                .padding(reverseIndex * 20)
                 .rotationEffect(
-                    .degrees((Double(count) - Double(index) - 1) * 6),
+                    .degrees(reverseIndex * 8),
                     anchor: .bottomTrailing
                 )
                 .frame(width: size.width * 0.75, height: size.height * 0.5)
