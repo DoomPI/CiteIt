@@ -9,7 +9,6 @@ import SwiftUI
 
 enum MainScreenAssembly {
     
-    @MainActor
     static func build() -> UIHostingController<MainScreenView> {
         let observable = MainScreenObservable()
         let presenter = MainScreenPresenter()

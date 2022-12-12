@@ -30,7 +30,7 @@ class MainScreenWorker: MainScreenWorkingLogic {
                         from: data
                     ) {
                     DispatchQueue.main.async {
-                        didSucceed(quotesList)
+                        didSucceed(Array(quotesList.prefix(5)))
                     }
                     Task { [weak self] in
                         self?.saveQuotesList(data: data)
@@ -51,7 +51,7 @@ class MainScreenWorker: MainScreenWorkingLogic {
             if let data = await self?.persistenceWorker.read(from: quotesListPath),
                let quotesList = try? self?.decoder.decode([Model.Quote].self, from: data) {
                 DispatchQueue.main.async {
-                    didSucceed(quotesList)
+                    didSucceed(Array(quotesList.prefix(5)))
                 }
             } else {
                 DispatchQueue.main.async {

@@ -12,11 +12,13 @@ struct MainScreenView: View {
     @ObservedObject
     var observedObject: MainScreenObservable
     
+    private let quotesStackView = QuotesStackView()
+    
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             
-            ScrollView(.vertical) {
+            ScrollView(.vertical, showsIndicators: false) {
                 
                 VStack(alignment: .leading) {
                     
@@ -28,24 +30,25 @@ struct MainScreenView: View {
                                 .font(.subheadline)
                         }
                         Spacer()
-                    }
+                    }.padding(.bottom, 20)
                     
-                    QuotesStackView()
+                    quotesStackView
                         .environmentObject(observedObject)
                 }
             }
             .padding(20)
-            .navigationBarItems(trailing:(
-                Button(action: {
-                    withAnimation {
-                        
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                        Image(systemName: "line.horizontal.3")
+                            .imageScale(.large)
                     }
-                }) {
-                    Image(systemName: "line.horizontal.3")
-                        .imageScale(.large)
                 }
-            ))
-            
+            }
         }
     }
     

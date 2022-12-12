@@ -16,26 +16,80 @@ struct QuoteView: View {
         systemName: "quote.closing"
     )
     
-    var quote: Model.Quote
+    var quoteVo: Model.GetQuotesList.ViewObject
+    
+    @Binding
+    var quotesViewModel: Model.GetQuotesList.ViewModel
+    
+    @State
+    private var offset: CGFloat = 0
     
     var body: some View {
-        VStack() {
-            quoteOpeningImage
-                .font(.system(size: 60))
+        VStack {
+            
+            HStack {
+                quoteOpeningImage
+                    .font(.system(size: 60))
+                    .foregroundColor(.white)
+                Spacer()
+            }
+            
+            
             Spacer()
-            Text(quote.text)
+            
+            Text(quoteVo.quote.text)
+                .lineSpacing(10)
+                .frame(alignment: .top)
+                .tracking(5)
+                .padding(5)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.white)
+                .font(.custom("Organic Peach DEMO", size: 20))
+            
             Spacer()
-            quoteClosingImage
-                .font(.system(size: 60))
+            
+            HStack {
+                Spacer()
+                quoteClosingImage
+                    .font(.system(size: 60))
+                    .foregroundColor(.white)
+            }
+        }
+        .padding(20)
+        .background(quoteVo.color)
+        .cornerRadius(20)
+        .offset(x: offset)
+        /*.gesture(DragGesture()
+            .onChanged(onChanged(value:))
+            .onEnded(onEnded(value:))
+        )*/
+        
+        .onTapGesture {
+            withAnimation {
+                removeLast()
+            }
         }
     }
-}
-
-struct QuoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuoteView(quote: Model.Quote(
-            text: "Cite it",
-            author: ""
-        ))
+    
+    private func removeLast() {
+        quotesViewModel.quotesList.removeLast()
+    }
+    
+    private func onChanged(value: DragGesture.Value) {
+        
+        if value.translation.width < 0 {
+            offset = value.translation.width
+        }
+    }
+    
+    private func onEnded(value: DragGesture.Value) {
+        withAnimation(.easeOut) {
+            if value.translation.width < 0
+                && -value.translation.width > UIScreen.main.bounds.width / 2 {
+                offset =  -1000
+            } else {
+                offset = 0
+            }
+        }
     }
 }

@@ -5,6 +5,8 @@
 //  Created by Роман Ломтев on 26.10.2022.
 //
 
+import Foundation
+
 class MainScreenPresenter {
     
     // MARK: - External vars
@@ -14,6 +16,17 @@ class MainScreenPresenter {
 extension MainScreenPresenter: MainScreenPresentationLogic {
     
     func present(quotesList: Model.GetQuotesList.Response) {
-        viewController?.display(model: Model.GetQuotesList.ViewModel(quotesList: quotesList))
+        
+        var viewObjects: [Model.GetQuotesList.ViewObject] = []
+        
+        for index in 0 ..< quotesList.count {
+            viewObjects.append(Model.GetQuotesList.ViewObject(
+                quote: quotesList[index]
+            ))
+        }
+        
+        viewController?.display(model: Model.GetQuotesList.ViewModel(
+            quotesList: viewObjects
+        ))
     }
 }

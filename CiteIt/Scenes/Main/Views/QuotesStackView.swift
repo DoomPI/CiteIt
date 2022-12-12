@@ -16,12 +16,25 @@ struct QuotesStackView: View {
     private var quotesViewModel = Model.GetQuotesList.ViewModel.empty
     
     var body: some View {
-        VStack {
-            ForEach(quotesViewModel.quotesList, id: \.self) { quote in
-                QuoteView(quote: quote)
+        
+        ZStack {
+            
+            let size = UIScreen.main.bounds.size
+            let count = quotesViewModel.quotesList.count
+            
+            ForEach(0 ..< count, id: \.self) { index in
+                QuoteView(
+                    quoteVo: quotesViewModel.quotesList[index],
+                    quotesViewModel: $quotesViewModel
+                )
+                .offset(x: CGFloat(count - index - 1) * 40)
+                .padding(CGFloat(count - index - 1) * 20)
+                .frame(width: size.width * 0.75, height: size.height * 0.5)
+                .zIndex(Double(index))
+                .disabled(index != count - 1)
             }
+            .transition(.push(from: Edge.trailing))
         }
-        .frame(height: .infinity)
         .onReceive(observedObject.$quotesViewModel) { newQuoteViewModel in
             self.quotesViewModel = newQuoteViewModel
         }
