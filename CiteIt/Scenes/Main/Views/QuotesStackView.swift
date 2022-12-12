@@ -29,6 +29,10 @@ struct QuotesStackView: View {
                 )
                 .offset(x: CGFloat(count - index - 1) * 40)
                 .padding(CGFloat(count - index - 1) * 20)
+                .rotationEffect(
+                    .degrees((Double(count) - Double(index) - 1) * 8),
+                    anchor: .bottomTrailing
+                )
                 .frame(width: size.width * 0.75, height: size.height * 0.5)
                 .zIndex(Double(index))
                 .disabled(index != count - 1)
@@ -38,11 +42,5 @@ struct QuotesStackView: View {
         .onReceive(observedObject.$quotesViewModel) { newQuoteViewModel in
             self.quotesViewModel = newQuoteViewModel
         }
-    }
-}
-
-struct QuotesStackView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuotesStackView()
     }
 }

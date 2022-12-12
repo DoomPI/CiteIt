@@ -35,8 +35,8 @@ struct MainScreenView: View {
                     quotesStackView
                         .environmentObject(observedObject)
                 }
+                .padding(20)
             }
-            .padding(20)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {

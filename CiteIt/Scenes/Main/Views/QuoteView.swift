@@ -22,14 +22,18 @@ struct QuoteView: View {
     var quotesViewModel: Model.GetQuotesList.ViewModel
     
     @State
-    private var offset: CGFloat = 0
+    private var offsetX: CGFloat = 0
+    
+    @State
+    private var rotationDegrees: CGFloat = 0
+    
     
     var body: some View {
         VStack {
             
             HStack {
                 quoteOpeningImage
-                    .font(.system(size: 60))
+                    .font(.system(size: 30))
                     .foregroundColor(.white)
                 Spacer()
             }
@@ -51,24 +55,19 @@ struct QuoteView: View {
             HStack {
                 Spacer()
                 quoteClosingImage
-                    .font(.system(size: 60))
+                    .font(.system(size: 30))
                     .foregroundColor(.white)
             }
         }
         .padding(20)
         .background(quoteVo.color)
         .cornerRadius(20)
-        .offset(x: offset)
-        /*.gesture(DragGesture()
+        .offset(x: offsetX)
+        .rotationEffect(.degrees(rotationDegrees), anchor: .bottomLeading)
+        .gesture(DragGesture()
             .onChanged(onChanged(value:))
             .onEnded(onEnded(value:))
-        )*/
-        
-        .onTapGesture {
-            withAnimation {
-                removeLast()
-            }
-        }
+        )
     }
     
     private func removeLast() {
@@ -78,17 +77,22 @@ struct QuoteView: View {
     private func onChanged(value: DragGesture.Value) {
         
         if value.translation.width < 0 {
-            offset = value.translation.width
+            offsetX = value.translation.width
+            rotationDegrees = value.translation.width / 10
         }
     }
     
     private func onEnded(value: DragGesture.Value) {
-        withAnimation(.easeOut) {
-            if value.translation.width < 0
-                && -value.translation.width > UIScreen.main.bounds.width / 2 {
-                offset =  -1000
-            } else {
-                offset = 0
+        if value.translation.width < 0
+            && -value.translation.width > UIScreen.main.bounds.width / 3 {
+            offsetX =  -1000
+            withAnimation {
+                removeLast()
+            }
+        } else {
+            withAnimation {
+                offsetX = 0
+                rotationDegrees = 0
             }
         }
     }
