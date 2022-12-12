@@ -16,9 +16,19 @@ class ColorUtils {
     
     static func generateRandomColor() -> Color {
         return Color(
-            red: .random(in: Constants.minColorValue...Constants.maxColorValue),
-            green: .random(in: Constants.minColorValue...Constants.maxColorValue),
-            blue: .random(in: Constants.minColorValue...Constants.maxColorValue)
+            red: add(.random(in: Constants.minColorValue..<Constants.maxColorValue),
+                toComponent: -0.1
+            ),
+            green: add(.random(in: Constants.minColorValue..<Constants.maxColorValue),
+                toComponent: -0.1
+            ),
+            blue: add(.random(in: Constants.minColorValue..<Constants.maxColorValue),
+                toComponent: -0.1
+            )
         )
+    }
+    
+    private static func add(_ value: CGFloat, toComponent: CGFloat) -> CGFloat {
+        return max(0, min(1, toComponent + value))
     }
 }

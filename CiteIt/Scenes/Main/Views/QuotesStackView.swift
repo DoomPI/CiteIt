@@ -27,10 +27,11 @@ struct QuotesStackView: View {
                     quoteVo: quotesViewModel.quotesList[index],
                     quotesViewModel: $quotesViewModel
                 )
-                .offset(x: CGFloat(count - index - 1) * 40)
+                .hidden(Int(count) - Int(index) - 1 >= 3)
+                .offset(x: CGFloat(count - index - 1) * 20)
                 .padding(CGFloat(count - index - 1) * 20)
                 .rotationEffect(
-                    .degrees((Double(count) - Double(index) - 1) * 8),
+                    .degrees((Double(count) - Double(index) - 1) * 6),
                     anchor: .bottomTrailing
                 )
                 .frame(width: size.width * 0.75, height: size.height * 0.5)

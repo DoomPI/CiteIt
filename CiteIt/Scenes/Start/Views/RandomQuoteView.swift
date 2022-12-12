@@ -99,7 +99,7 @@ struct RandomQuoteView: View {
                 let letter = quoteText[quoteTextIndex]
                 quoteTextDisplayed = quoteTextDisplayed.replacingCharacters(in: quoteTextIndex...quoteTextIndex, with: String(letter))
                 
-                if letter == "." || letter == "," {
+                if letter == "." || letter == "," || letter == ";" {
                     RunLoop.current.run(until: Date() + 0.5)
                 } else {
                     RunLoop.current.run(until: Date() + 0.05)
