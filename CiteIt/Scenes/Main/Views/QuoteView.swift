@@ -23,6 +23,8 @@ struct QuoteView: View {
     
     var textPadding: CGFloat
     
+    var isTextShown: Bool
+    
     @State
     private var offsetX: CGFloat = 0
     
@@ -51,6 +53,7 @@ struct QuoteView: View {
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)
                 .font(.custom("Organic Peach DEMO", size: 20))
+                .opacity(isTextShown ? 1 : 0)
             
             Spacer()
             

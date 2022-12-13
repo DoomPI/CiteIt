@@ -30,10 +30,11 @@ struct QuotesStackView: View {
                 QuoteView(
                     quoteVo: quotesViewModel.quotesList[index],
                     quotesViewModel: $quotesViewModel,
-                    textPadding: (CGFloat(index) - CGFloat(count) + 2) * 20
+                    textPadding: (1 - reverseIndex) * 20,
+                    isTextShown: reverseIndex < 2
                 )
                 .hidden(reverseIndex >= numberOfVisible)
-                .offset(x: reverseIndex * 20)
+                .offset(x: reverseIndex * 35)
                 .padding(reverseIndex * 20)
                 .rotationEffect(
                     .degrees(reverseIndex * 8),

@@ -102,7 +102,7 @@ struct RandomQuoteView: View {
                 if letter == "." || letter == "," || letter == ";" {
                     RunLoop.current.run(until: Date() + 0.5)
                 } else {
-                    RunLoop.current.run(until: Date() + 0.05)
+                    RunLoop.current.run(until: Date() + 0.03)
                 }
             }
             
