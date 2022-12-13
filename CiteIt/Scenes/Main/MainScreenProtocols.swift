@@ -7,12 +7,12 @@
 
 protocol MainScreenDisplayLogic: AnyObject {
     typealias Model = QuotesModel
-    func display(model: [Model.Quote])
+    func display(model: Model.GetQuotesList.ViewModel)
 }
 
 protocol MainScreenPresentationLogic {
     typealias Model = QuotesModel
-    func present(quotesList: [Model.Quote])
+    func present(quotesList: Model.GetQuotesList.Response)
 }
 
 protocol MainScreenBusinessLogic {

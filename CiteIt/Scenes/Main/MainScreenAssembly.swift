@@ -10,12 +10,13 @@ import SwiftUI
 enum MainScreenAssembly {
     
     static func build() -> UIHostingController<MainScreenView> {
-        
+        let observable = MainScreenObservable()
         let presenter = MainScreenPresenter()
         let worker = MainScreenWorker()
         let interactor = MainScreenInteractor(presenter: presenter, worker: worker)
         let router = MainScreenRouter()
-        let viewController = MainScreenViewController(interactor: interactor, router: router)
+        let view = MainScreenView(observedObject: observable)
+        let viewController = MainScreenViewController(view: view, interactor: interactor, router: router)
         
         presenter.viewController = viewController
         router.viewController = viewController

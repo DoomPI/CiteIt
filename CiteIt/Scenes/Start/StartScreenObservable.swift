@@ -7,15 +7,8 @@
 
 import Foundation
 
-@MainActor
 class StartScreenObservable: ObservableObject {
     
     @Published
-    var showQuoteState = false
-    
-    @Published
-    var quoteText: String = ""
-    
-    @Published
-    var quoteAuthor: String = ""
+    var quoteViewModel = Model.GetRandomQuote.ViewModel.empty
 }

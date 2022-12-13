@@ -15,7 +15,13 @@ extension StartScreenPresenter: StartScreenPresentationLogic {
     
     func presentRandomQuote(quotesList: Model.GetRandomQuote.Response) {
         let data = quotesList[0]
-        viewController?.display(viewModel: Model.GetRandomQuote.ViewModel(quote: data))
+        
+        viewController?.display(viewModel: Model.GetRandomQuote.ViewModel(
+            quote: Model.Quote(
+                text: data.text.divideIntoLines(charsPerLine: 15),
+                author: data.author
+            )
+        ))
     }
     
     func present() {

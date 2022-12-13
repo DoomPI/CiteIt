@@ -14,11 +14,11 @@ class MainScreenViewController: UIHostingController<MainScreenView> {
     private let router: MainScreenRoutingLogic
     
     // MARK: - Init
-    init(interactor: MainScreenBusinessLogic, router: MainScreenRoutingLogic) {
+    init(view: MainScreenView, interactor: MainScreenBusinessLogic, router: MainScreenRoutingLogic) {
         self.interactor = interactor
         self.router = router
         
-        super.init(rootView: MainScreenView())
+        super.init(rootView: view)
     }
     
     @available(*, unavailable)
@@ -34,7 +34,7 @@ class MainScreenViewController: UIHostingController<MainScreenView> {
 
 extension MainScreenViewController: MainScreenDisplayLogic {
     
-    func display(model: [Model.Quote]) {
-        
+    func display(model: Model.GetQuotesList.ViewModel) {
+        rootView.showQuotesList(quoteViewModel: model)
     }
 }

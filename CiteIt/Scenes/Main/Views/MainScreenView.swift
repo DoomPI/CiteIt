@@ -8,13 +8,51 @@
 import SwiftUI
 
 struct MainScreenView: View {
+    
+    @ObservedObject
+    var observedObject: MainScreenObservable
+    
+    private let quotesStackView = QuotesStackView()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationStack {
+            
+            ScrollView(.vertical, showsIndicators: false) {
+                
+                VStack(alignment: .leading) {
+                    
+                    HStack {
+                        VStack(alignment: .leading, spacing: 20) {
+                            Text("Cite it")
+                                .font(.largeTitle)
+                            Text("Today's quotes:")
+                                .font(.subheadline)
+                        }
+                        Spacer()
+                    }.padding(.bottom, 20)
+                    
+                    quotesStackView
+                        .environmentObject(observedObject)
+                }
+                .padding(20)
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        withAnimation {
+                            
+                        }
+                    }) {
+                        Image(systemName: "line.horizontal.3")
+                            .imageScale(.large)
+                    }
+                }
+            }
+        }
     }
-}
-
-struct MainScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainScreenView()
+    
+    func showQuotesList(quoteViewModel: Model.GetQuotesList.ViewModel) {
+        self.observedObject.quotesViewModel = quoteViewModel
     }
 }

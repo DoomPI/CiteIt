@@ -16,23 +16,89 @@ struct QuoteView: View {
         systemName: "quote.closing"
     )
     
-    var text: String = "Cite it"
+    var quoteVo: Model.GetQuotesList.ViewObject
+    
+    @Binding
+    var quotesViewModel: Model.GetQuotesList.ViewModel
+    
+    var textPadding: CGFloat
+    
+    var isTextShown: Bool
+    
+    @State
+    private var offsetX: CGFloat = 0
+    
+    @State
+    private var rotationDegrees: CGFloat = 0
+    
     
     var body: some View {
-        VStack() {
-            quoteOpeningImage
-                .font(.system(size: 60))
+        VStack {
+            
+            HStack {
+                quoteOpeningImage
+                    .font(.system(size: 30))
+                    .foregroundColor(.white)
+                Spacer()
+            }
+            
+            
             Spacer()
-            Text(text)
+            
+            Text(quoteVo.quote.text)
+                .lineSpacing(10)
+                .frame(alignment: .top)
+                .tracking(5)
+                .padding(textPadding)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.white)
+                .font(.custom("Organic Peach DEMO", size: 20))
+                .opacity(isTextShown ? 1 : 0)
+            
             Spacer()
-            quoteClosingImage
-                .font(.system(size: 60))
+            
+            HStack {
+                Spacer()
+                quoteClosingImage
+                    .font(.system(size: 30))
+                    .foregroundColor(.white)
+            }
+        }
+        .padding(20)
+        .background(quoteVo.color)
+        .cornerRadius(20)
+        .offset(x: offsetX)
+        .rotationEffect(.degrees(rotationDegrees), anchor: .bottomLeading)
+        .gesture(DragGesture()
+            .onChanged(onChanged(value:))
+            .onEnded(onEnded(value:))
+        )
+    }
+    
+    private func removeLast() {
+        quotesViewModel.quotesList.removeLast()
+    }
+    
+    private func onChanged(value: DragGesture.Value) {
+        
+        if value.translation.width < 0 {
+            offsetX = value.translation.width
+            rotationDegrees = value.translation.width / 10
         }
     }
-}
-
-struct QuoteView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuoteView()
+    
+    private func onEnded(value: DragGesture.Value) {
+        if value.translation.width < 0
+            && -value.translation.width > UIScreen.main.bounds.width / 3 {
+            offsetX =  -1000
+            withAnimation {
+                removeLast()
+            }
+        } else {
+            withAnimation {
+                offsetX = 0
+                rotationDegrees = 0
+            }
+        }
     }
 }
