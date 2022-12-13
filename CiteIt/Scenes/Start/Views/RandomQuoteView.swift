@@ -71,6 +71,13 @@ struct RandomQuoteView: View {
             let author = newQuoteViewModel.quote.author
             
             self.quoteTextDisplayed.reserveCapacity(text.count)
+            for letter in text {
+                if letter == " " || letter == "\n" {
+                    quoteTextDisplayed.append(letter)
+                } else {
+                    quoteTextDisplayed.append("\u{00A0}")
+                }
+            }
             
             self.quoteAuthorDisplayed.reserveCapacity(author.count)
             self.quoteAuthorDisplayed = quoteAuthorDisplayed.padding(toLength: author.count, withPad: "\u{00A0}", startingAt: 0)
@@ -90,8 +97,7 @@ struct RandomQuoteView: View {
             for index in 0...quoteText.count - 1 {
                 let quoteTextIndex = quoteText.index(quoteText.startIndex, offsetBy: index)
                 let letter = quoteText[quoteTextIndex]
-                
-                quoteTextDisplayed.append(quoteText[quoteTextIndex])
+                quoteTextDisplayed = quoteTextDisplayed.replacingCharacters(in: quoteTextIndex...quoteTextIndex, with: String(letter))
                 
                 if letter == "." || letter == "," || letter == ";" {
                     RunLoop.current.run(until: Date() + 0.5)
