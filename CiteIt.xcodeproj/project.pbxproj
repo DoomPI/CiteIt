@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC0775822947567A004D4157 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0775812947567A004D4157 /* StringExt.swift */; };
 		CC116C992917A07B00BDF7F5 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */; };
 		CC116C9B2917A08400BDF7F5 /* StartScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */; };
 		CC116C9D2917A09200BDF7F5 /* StartScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC0775812947567A004D4157 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenInteractor.swift; sourceTree = "<group>"; };
 		CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */,
 				CC8BABA22946932800D8454E /* ColorUtils.swift */,
 				CCD8BBA62947008A0093B35F /* ViewExt.swift */,
+				CC0775812947567A004D4157 /* StringExt.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				CC116CA52917A0BD00BDF7F5 /* StartScreenAssembly.swift in Sources */,
 				CC8BABA12946653500D8454E /* MainScreenObservable.swift in Sources */,
 				CC116C9B2917A08400BDF7F5 /* StartScreenInteractor.swift in Sources */,
+				CC0775822947567A004D4157 /* StringExt.swift in Sources */,
 				CCAD8DF62908B81B0037AA0F /* MainScreenProtocols.swift in Sources */,
 				CCAD8DDD2908B76A0037AA0F /* AppDelegate.swift in Sources */,
 				CCAD8DFF2908B8DD0037AA0F /* MainScreenWorker.swift in Sources */,

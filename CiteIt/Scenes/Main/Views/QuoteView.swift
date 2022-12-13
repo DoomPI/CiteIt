@@ -21,6 +21,8 @@ struct QuoteView: View {
     @Binding
     var quotesViewModel: Model.GetQuotesList.ViewModel
     
+    var textPadding: CGFloat
+    
     @State
     private var offsetX: CGFloat = 0
     
@@ -45,7 +47,7 @@ struct QuoteView: View {
                 .lineSpacing(10)
                 .frame(alignment: .top)
                 .tracking(5)
-                .padding(5)
+                .padding(textPadding)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)
                 .font(.custom("Organic Peach DEMO", size: 20))

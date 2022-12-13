@@ -21,6 +21,7 @@ struct QuotesStackView: View {
             
             let size = UIScreen.main.bounds.size
             let count = quotesViewModel.quotesList.count
+            let numberOfVisible: CGFloat = 3
             
             ForEach(0 ..< count, id: \.self) { index in
                 
@@ -28,9 +29,10 @@ struct QuotesStackView: View {
                 
                 QuoteView(
                     quoteVo: quotesViewModel.quotesList[index],
-                    quotesViewModel: $quotesViewModel
+                    quotesViewModel: $quotesViewModel,
+                    textPadding: (CGFloat(index) - CGFloat(count) + 2) * 20
                 )
-                .hidden(reverseIndex >= 3)
+                .hidden(reverseIndex >= numberOfVisible)
                 .offset(x: reverseIndex * 20)
                 .padding(reverseIndex * 20)
                 .rotationEffect(
