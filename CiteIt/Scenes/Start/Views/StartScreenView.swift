@@ -11,7 +11,7 @@ typealias Model = QuotesModel
 
 struct StartScreenView: View {
     
-    var navigateToMainScreenAction: () -> Void
+    var navigationButtonPressed: () -> Void
     
     @ObservedObject
     var observedObject: StartScreenObservable
@@ -38,7 +38,7 @@ struct StartScreenView: View {
                 
                 Spacer()
                 
-                Button(action: navigateToMainScreenAction) {
+                Button(action: navigationButtonPressed) {
                     Image(systemName: "chevron.right.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)

@@ -14,9 +14,14 @@ class StartScreenViewController: UIHostingController<StartScreenView> {
     private let router: StartScreenRoutingLogic
     
     // MARK: - Init
-    init(view: StartScreenView, interactor: StartScreenBusinessLogic, router: StartScreenRoutingLogic) {
+    init(observable: StartScreenObservable, interactor: StartScreenBusinessLogic, router: StartScreenRoutingLogic) {
         self.interactor = interactor
         self.router = router
+        
+        let view = StartScreenView(
+            navigationButtonPressed: router.navigateToMainScreen,
+            observedObject: observable
+        )
         
         super.init(rootView: view)
     }
