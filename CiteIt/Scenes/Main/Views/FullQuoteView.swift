@@ -38,7 +38,18 @@ struct FullQuoteView: View {
                 .padding(5)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)
-                .font(.custom("Organic Peach DEMO", size: 20))
+                .font(.custom("Organic Peach DEMO", size: 30))
+            
+            Spacer()
+            
+            HStack {
+                Spacer()
+                Text(quoteVo.quote.author)
+                    .tracking(5)
+                    .foregroundColor(.white)
+                    .font(.custom("Organic Peach DEMO", size: 20))
+                    .padding(.trailing, 10)
+            }
             
             Spacer()
             
@@ -51,7 +62,7 @@ struct FullQuoteView: View {
         }
         .padding(20)
         .background(quoteVo.color)
-        .cornerRadius(20)
+        .edgesIgnoringSafeArea(.all)
         
     }
 }

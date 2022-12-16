@@ -12,60 +12,80 @@ struct MainScreenView: View {
     @ObservedObject
     var observedObject: MainScreenObservable
     
-    @Environment(\.displayScale) var displayScale
+    @Environment(\.displayScale) private var displayScale
     
-    private let quotesStackView = QuotesStackView()
+    @State
+    private var quotesViewModel = Model.GetQuotesList.ViewModel.empty
+    
     private let size = UIScreen.main.bounds.size
     
     @State
     private var image = Image(systemName: "photo")
     
+    @State
+    private var sharePreview = SharePreview(Text("Никита"), image: Image(systemName: "square.and.arrow.up"))
+    
+    @State
+    private var shareText = Text("Никита")
+    
+    @State
+    private var isExpanded = false
+    
     var body: some View {
         
         NavigationStack {
-            
-            ScrollView(.vertical, showsIndicators: false) {
                 
-                VStack(alignment: .leading) {
-                    
-                    HStack {
-                        VStack(alignment: .leading, spacing: 20) {
-                            Text("Cite it")
-                                .font(.largeTitle)
-                            Text("Today's quotes:")
-                                .font(.subheadline)
-                        }
-                        Spacer()
+            VStack {
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("Cite it")
+                            .font(.largeTitle)
+                        Text("Today's quotes:")
+                            .font(.subheadline)
                     }
-                    .padding(.bottom, 20)
-                    
-                    quotesStackView
-                        .environmentObject(observedObject)
-                    
-                    ShareLink(
-                        item: image,
-                        message: Text("Никита"),
-                        preview: SharePreview(Text("Никита"), image: Image(systemName: "square.and.arrow.up"))
-                    )
-                    
+                    Spacer()
                 }
-                .padding(20)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        withAnimation {
+                .padding([.leading, .leading, .bottom], 20)
+                .padding(.top, 40)
+                
+                VStack {
+                    
+                    if (!isExpanded) {
+                        ScrollView(showsIndicators: false) {
+                            HStack {
+                                QuotesStackView(quotesViewModel: $quotesViewModel)
+                                Spacer()
+                            }
+                            .padding(20)
                             
+                            Spacer()
                         }
-                    }) {
-                        Image(systemName: "line.horizontal.3")
-                            .imageScale(.large)
+                    } else {
+                        FullQuoteView(quoteVo: quotesViewModel.quotesList[
+                            quotesViewModel.quotesList.endIndex - 1
+                        ])
+                        .frame(maxWidth: size.width, maxHeight: .infinity)
+                        .cornerRadius(20)
+                        .edgesIgnoringSafeArea(.all)
+                        .aspectRatio(contentMode: .fill)
+                    }
+                }
+                .onTapGesture {
+                    withAnimation(.spring(
+                        response: 0.6,
+                        dampingFraction: 0.8
+                    )) {
+                        isExpanded.toggle()
                     }
                 }
             }
             .onAppear {
                 render()
             }
+        }
+        .onReceive(observedObject.$quotesViewModel) { newQuoteViewModel in
+            self.quotesViewModel = newQuoteViewModel
         }
     }
     
@@ -75,23 +95,27 @@ struct MainScreenView: View {
     
     @MainActor
     private func render() {
-        let renderer = ImageRenderer(content: FullQuoteView(
-            quoteVo: Model.GetQuotesList.ViewObject(
-                quote: QuotesModel.Quote(
-                    text: "Cite it",
-                    author: "Somebody"
+        DispatchQueue.main.async {
+            let renderer = ImageRenderer(
+                content: FullQuoteView(
+                    quoteVo: Model.GetQuotesList.ViewObject(
+                        quote: QuotesModel.Quote(
+                            text: "Cite it",
+                            author: "Somebody"
+                        )
+                    )
                 )
+                .frame(width: size.width * 0.75, height: size.height * 0.5)
+                .cornerRadius(20)
             )
-        )
-            .frame(width: size.width * 0.75, height: size.height * 0.5)
-        )
-        
-        renderer.scale = displayScale
-        
-        if let uiImage = renderer.uiImage,
-           let data = uiImage.pngData(),
-           let renderedImage = UIImage(data: data) {
-            image = Image(uiImage: renderedImage)
+            
+            renderer.scale = displayScale
+            
+            if let uiImage = renderer.uiImage,
+               let data = uiImage.pngData(),
+               let renderedImage = UIImage(data: data) {
+                image = Image(uiImage: renderedImage)
+            }
         }
     }
 }

@@ -9,11 +9,8 @@ import SwiftUI
 
 struct QuotesStackView: View {
     
-    @EnvironmentObject
-    var observedObject: MainScreenObservable
-    
-    @State
-    private var quotesViewModel = Model.GetQuotesList.ViewModel.empty
+    @Binding
+    var quotesViewModel: Model.GetQuotesList.ViewModel
     
     var body: some View {
         
@@ -25,7 +22,7 @@ struct QuotesStackView: View {
             
             ForEach(0 ..< count, id: \.self) { index in
                 
-                let reverseIndex: CGFloat = CGFloat(count) - CGFloat(index) - 1
+                let reverseIndex = Double(quotesViewModel.quotesList.endIndex - index - 1)
                 
                 QuoteView(
                     quoteVo: quotesViewModel.quotesList[index],
@@ -45,9 +42,6 @@ struct QuotesStackView: View {
                 .disabled(index != count - 1)
             }
             .transition(.push(from: Edge.trailing))
-        }
-        .onReceive(observedObject.$quotesViewModel) { newQuoteViewModel in
-            self.quotesViewModel = newQuoteViewModel
         }
     }
 }
