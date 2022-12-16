@@ -24,6 +24,21 @@ extension StartScreenPresenter: StartScreenPresentationLogic {
         ))
     }
     
+    func presentQuotesList(quotesList: Model.GetQuotesList.Response) {
+        
+        var viewObjects: [Model.GetQuotesList.ViewObject] = []
+        
+        for index in 0 ..< quotesList.count {
+            viewObjects.append(Model.GetQuotesList.ViewObject(
+                quote: quotesList[index]
+            ))
+        }
+        
+        viewController?.passQuotesList(viewModel: Model.GetQuotesList.ViewModel(
+            quotesList: viewObjects
+        ))
+    }
+    
     func present() {
         viewController?.display()
     }

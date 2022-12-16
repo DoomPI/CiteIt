@@ -15,11 +15,11 @@ enum StartScreenAssembly {
         let worker = StartScreenWorker()
         let interactor = StartScreenInteractor(presenter: presenter, worker: worker)
         let router = StartScreenRouter()
-        let view = StartScreenView(
-            navigateToMainScreenAction: router.navigateToMainScreen,
-            observedObject: observable
+        let viewController = StartScreenViewController(
+            observable: observable,
+            interactor: interactor,
+            router: router
         )
-        let viewController = StartScreenViewController(view: view, interactor: interactor, router: router)
         
         presenter.viewController = viewController
         router.viewController = viewController

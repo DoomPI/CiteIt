@@ -14,9 +14,14 @@ class StartScreenViewController: UIHostingController<StartScreenView> {
     private let router: StartScreenRoutingLogic
     
     // MARK: - Init
-    init(view: StartScreenView, interactor: StartScreenBusinessLogic, router: StartScreenRoutingLogic) {
+    init(observable: StartScreenObservable, interactor: StartScreenBusinessLogic, router: StartScreenRoutingLogic) {
         self.interactor = interactor
         self.router = router
+        
+        let view = StartScreenView(
+            navigationButtonAction: router.navigateToMainScreen,
+            observedObject: observable
+        )
         
         super.init(rootView: view)
     }
@@ -27,11 +32,17 @@ class StartScreenViewController: UIHostingController<StartScreenView> {
     }
     
     override func viewDidLoad() {
-       interactor.fetchRandomQuote()
+        interactor.fetchRandomQuote()
+        interactor.fetchQuotesList()
     }
 }
 
 extension StartScreenViewController: StartScreenDisplayLogic {
+    
+    func passQuotesList(viewModel: Model.GetQuotesList.ViewModel) {
+        rootView.postQuotesList(quotesViewModel: viewModel)
+    }
+    
     
     func display(viewModel: Model.GetRandomQuote.ViewModel) {
         rootView.showQuote(quoteViewModel: viewModel)

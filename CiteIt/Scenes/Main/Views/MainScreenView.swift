@@ -12,43 +12,70 @@ struct MainScreenView: View {
     @ObservedObject
     var observedObject: MainScreenObservable
     
-    private let quotesStackView = QuotesStackView()
+    @Namespace
+    private var namespace
+    
+    @State
+    private var quotesViewModel = Model.GetQuotesList.ViewModel.empty
+    
+    @State
+    private var isExpanded = false
     
     var body: some View {
         
         NavigationStack {
-            
-            ScrollView(.vertical, showsIndicators: false) {
                 
-                VStack(alignment: .leading) {
-                    
-                    HStack {
-                        VStack(alignment: .leading, spacing: 20) {
-                            Text("Cite it")
-                                .font(.largeTitle)
-                            Text("Today's quotes:")
-                                .font(.subheadline)
-                        }
-                        Spacer()
-                    }.padding(.bottom, 20)
-                    
-                    quotesStackView
-                        .environmentObject(observedObject)
+            VStack {
+                
+                HStack {
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("Cite it")
+                            .font(.largeTitle)
+                        Text("Today's quotes:")
+                            .font(.subheadline)
+                    }
+                    Spacer()
                 }
-                .padding(20)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        withAnimation {
-                            
+                .padding([.leading, .leading, .bottom], 20)
+                .padding(.top, 40)
+                
+                ZStack {
+                    
+                    ScrollView(showsIndicators: false) {
+                        
+                        HStack {
+                            QuotesStackView(
+                                namespace: namespace,
+                                quotesViewModel: $quotesViewModel
+                            )
+                            Spacer()
                         }
-                    }) {
-                        Image(systemName: "line.horizontal.3")
-                            .imageScale(.large)
+                        .padding(20)
+                        .onTapGesture {
+                            withAnimation(.default.speed(0.75)) {
+                                isExpanded.toggle()
+                            }
+                        }
+                    }
+                    
+                    if (isExpanded) {
+                        ExpandedQuoteView(
+                            namespace: namespace,
+                            id: 0,
+                            quoteVo: quotesViewModel.quotesList[quotesViewModel.quotesList.endIndex - 1]
+                        )
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation {
+                                isExpanded.toggle()
+                            }
+                        }
                     }
                 }
             }
+        }
+        .onReceive(observedObject.$quotesViewModel) { newQuoteViewModel in
+            self.quotesViewModel = newQuoteViewModel
         }
     }
     

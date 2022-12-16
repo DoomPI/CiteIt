@@ -15,9 +15,9 @@ class StartScreenRouter {
 
 extension StartScreenRouter: StartScreenRoutingLogic {
     
-    func navigateToMainScreen() {
+    func navigateToMainScreen(quotesListViewModel: Model.GetQuotesList.ViewModel) {
         viewController?.dismiss(animated: false) {
-            let mainScreenVC = MainScreenAssembly.build()
+            let mainScreenVC = MainScreenAssembly.build(quotesListViewModel: quotesListViewModel)
             mainScreenVC.modalPresentationStyle = .fullScreen
             self.viewController?.navigationController?.present(mainScreenVC, animated: true)
         }

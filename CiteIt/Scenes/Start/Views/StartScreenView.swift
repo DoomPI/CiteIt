@@ -11,7 +11,7 @@ typealias Model = QuotesModel
 
 struct StartScreenView: View {
     
-    var navigateToMainScreenAction: () -> Void
+    var navigationButtonAction: (Model.GetQuotesList.ViewModel) -> Void
     
     @ObservedObject
     var observedObject: StartScreenObservable
@@ -38,7 +38,7 @@ struct StartScreenView: View {
                 
                 Spacer()
                 
-                Button(action: navigateToMainScreenAction) {
+                Button(action: navigationButtonPressed) {
                     Image(systemName: "chevron.right.circle")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -62,5 +62,13 @@ struct StartScreenView: View {
     
     func showQuote(quoteViewModel: Model.GetRandomQuote.ViewModel) {
         self.observedObject.quoteViewModel = quoteViewModel
+    }
+    
+    func postQuotesList(quotesViewModel: Model.GetQuotesList.ViewModel) {
+        self.observedObject.quotesListViewModel = quotesViewModel
+    }
+    
+    private func navigationButtonPressed() {
+        navigationButtonAction(observedObject.quotesListViewModel)
     }
 }
