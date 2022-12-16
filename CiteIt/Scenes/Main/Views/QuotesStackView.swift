@@ -9,22 +9,29 @@ import SwiftUI
 
 struct QuotesStackView: View {
     
+    var namespace: Namespace.ID
+    
     @Binding
     var quotesViewModel: Model.GetQuotesList.ViewModel
     
+    @Binding
+    var isExpanded: Bool
+    
     var body: some View {
         
+        let size = UIScreen.main.bounds.size
+        let count = quotesViewModel.quotesList.count
+        let numberOfVisible: CGFloat = 3
+        
         ZStack {
-            
-            let size = UIScreen.main.bounds.size
-            let count = quotesViewModel.quotesList.count
-            let numberOfVisible: CGFloat = 3
             
             ForEach(0 ..< count, id: \.self) { index in
                 
                 let reverseIndex = Double(quotesViewModel.quotesList.endIndex - index - 1)
                 
                 QuoteView(
+                    namespace: namespace,
+                    id: Int(reverseIndex),
                     quoteVo: quotesViewModel.quotesList[index],
                     quotesViewModel: $quotesViewModel,
                     textPadding: (1 - reverseIndex) * 20,

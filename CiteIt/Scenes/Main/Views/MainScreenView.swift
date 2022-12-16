@@ -14,6 +14,9 @@ struct MainScreenView: View {
     
     @Environment(\.displayScale) private var displayScale
     
+    @Namespace
+    private var namespace
+    
     @State
     private var quotesViewModel = Model.GetQuotesList.ViewModel.empty
     
@@ -49,34 +52,39 @@ struct MainScreenView: View {
                 .padding([.leading, .leading, .bottom], 20)
                 .padding(.top, 40)
                 
-                VStack {
+                ZStack {
                     
-                    if (!isExpanded) {
-                        ScrollView(showsIndicators: false) {
-                            HStack {
-                                QuotesStackView(quotesViewModel: $quotesViewModel)
-                                Spacer()
-                            }
-                            .padding(20)
-                            
+                    ScrollView(showsIndicators: false) {
+                        HStack {
+                            QuotesStackView(
+                                namespace: namespace,
+                                quotesViewModel: $quotesViewModel,
+                                isExpanded: $isExpanded
+                            )
                             Spacer()
                         }
-                    } else {
-                        FullQuoteView(quoteVo: quotesViewModel.quotesList[
-                            quotesViewModel.quotesList.endIndex - 1
-                        ])
-                        .frame(maxWidth: size.width, maxHeight: .infinity)
-                        .cornerRadius(20)
-                        .edgesIgnoringSafeArea(.all)
-                        .aspectRatio(contentMode: .fill)
+                        .padding(20)
+                        .onTapGesture {
+                            withAnimation {
+                                isExpanded.toggle()
+                            }
+                        }
+                        
+                        Spacer()
                     }
-                }
-                .onTapGesture {
-                    withAnimation(.spring(
-                        response: 0.6,
-                        dampingFraction: 0.8
-                    )) {
-                        isExpanded.toggle()
+                    
+                    if (isExpanded) {
+                        ExpandedQuoteView(
+                            namespace: namespace,
+                            id: 0,
+                            quoteVo: quotesViewModel.quotesList[quotesViewModel.quotesList.endIndex - 1]
+                        )
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            withAnimation {
+                                isExpanded.toggle()
+                            }
+                        }
                     }
                 }
             }

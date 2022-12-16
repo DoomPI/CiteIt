@@ -9,6 +9,10 @@ import SwiftUI
 
 struct QuoteView: View {
     
+    var namespace: Namespace.ID
+    
+    var id: Int
+    
     let quoteOpeningImage = Image(
         systemName: "quote.opening"
     )
@@ -33,12 +37,14 @@ struct QuoteView: View {
     
     
     var body: some View {
+        
         VStack {
             
             HStack {
                 quoteOpeningImage
                     .font(.system(size: 30))
                     .foregroundColor(.white)
+                    .matchedGeometryEffect(id: "topQuotations\(id)", in: namespace, properties: [])
                 Spacer()
             }
             
@@ -54,6 +60,7 @@ struct QuoteView: View {
                 .foregroundColor(.white)
                 .font(.custom("Organic Peach DEMO", size: 20))
                 .opacity(isTextShown ? 1 : 0)
+                .matchedGeometryEffect(id: "text\(id)", in: namespace, properties: [])
             
             Spacer()
             
@@ -62,11 +69,15 @@ struct QuoteView: View {
                 quoteClosingImage
                     .font(.system(size: 30))
                     .foregroundColor(.white)
+                    .matchedGeometryEffect(id: "bottomQuotations\(id)", in: namespace, properties: [])
             }
         }
         .padding(20)
-        .background(quoteVo.color)
-        .cornerRadius(20)
+        .background(
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .foregroundColor(quoteVo.color)
+                .matchedGeometryEffect(id: "background\(id)", in: namespace, properties: [])
+        )
         .offset(x: offsetX)
         .rotationEffect(.degrees(rotationDegrees), anchor: .bottomLeading)
         .gesture(DragGesture()
