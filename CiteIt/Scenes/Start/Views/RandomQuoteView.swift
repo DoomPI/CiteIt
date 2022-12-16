@@ -19,6 +19,9 @@ struct RandomQuoteView: View {
     private var quoteViewModel = Model.GetRandomQuote.ViewModel.empty
     
     @State
+    private var quotesListViewModel = Model.GetQuotesList.ViewModel.empty
+    
+    @State
     private var quoteTextDisplayed = ""
     
     @State
@@ -83,8 +86,16 @@ struct RandomQuoteView: View {
             self.quoteAuthorDisplayed = quoteAuthorDisplayed.padding(toLength: author.count, withPad: "\u{00A0}", startingAt: 0)
             
             typingAnimation {
-                self.showContinueButtonState = true
+                //self.showContinueButtonState = true
             }
+        }
+        .onReceive(observedObject.$quotesListViewModel) { newQuotesListViewModel in
+            
+            if (newQuotesListViewModel == Model.GetQuotesList.ViewModel.empty) {
+                return
+            }
+            
+            self.showContinueButtonState = true
         }
     }
     

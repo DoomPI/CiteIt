@@ -32,4 +32,16 @@ extension StartScreenInteractor: StartScreenBusinessLogic {
             }
         )
     }
+    
+    func fetchQuotesList() {
+        worker.getQuotesList(
+            Model.GetQuotesList.Request(),
+            didSucceed: { [weak self] quotes in
+                self?.presenter.presentQuotesList(quotesList: quotes)
+            },
+            didFail: {
+                
+            }
+        )
+    }
 }
