@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FullQuoteView: View {
+struct ShareQuoteView: View {
     
     let quoteOpeningImage = Image(
         systemName: "quote.opening"
@@ -69,7 +69,7 @@ struct FullQuoteView: View {
 
 struct FullQuoteView_Previews: PreviewProvider {
     static var previews: some View {
-        FullQuoteView(
+        ShareQuoteView(
             quoteVo: Model.GetQuotesList.ViewObject(
                 quote: QuotesModel.Quote(
                     text: "Cite it",

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CC0775822947567A004D4157 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0775812947567A004D4157 /* StringExt.swift */; };
-		CC07758429483A33004D4157 /* FullQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07758329483A33004D4157 /* FullQuoteView.swift */; };
+		CC07758429483A33004D4157 /* ShareQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC07758329483A33004D4157 /* ShareQuoteView.swift */; };
 		CC116C992917A07B00BDF7F5 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */; };
 		CC116C9B2917A08400BDF7F5 /* StartScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */; };
 		CC116C9D2917A09200BDF7F5 /* StartScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */; };
@@ -42,7 +42,7 @@
 
 /* Begin PBXFileReference section */
 		CC0775812947567A004D4157 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
-		CC07758329483A33004D4157 /* FullQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullQuoteView.swift; sourceTree = "<group>"; };
+		CC07758329483A33004D4157 /* ShareQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareQuoteView.swift; sourceTree = "<group>"; };
 		CC116C982917A07B00BDF7F5 /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		CC116C9A2917A08400BDF7F5 /* StartScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenInteractor.swift; sourceTree = "<group>"; };
 		CC116C9C2917A09200BDF7F5 /* StartScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenPresenter.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 				CC8034B4293D5CF80030BEB8 /* QuoteView.swift */,
 				CC8034B6293D63C30030BEB8 /* MainScreenView.swift */,
 				CC8BAB9E294664F500D8454E /* QuotesStackView.swift */,
-				CC07758329483A33004D4157 /* FullQuoteView.swift */,
+				CC07758329483A33004D4157 /* ShareQuoteView.swift */,
 				CC81D5C7294C3513003A0D4B /* ExpandedQuoteView.swift */,
 			);
 			path = Views;
@@ -308,7 +308,7 @@
 				CCE9176529174E8300B1BC29 /* UIViewAsImage.swift in Sources */,
 				CCAD8DF42908B8030037AA0F /* MainScreenAssembly.swift in Sources */,
 				CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */,
-				CC07758429483A33004D4157 /* FullQuoteView.swift in Sources */,
+				CC07758429483A33004D4157 /* ShareQuoteView.swift in Sources */,
 				CCD8BBA72947008A0093B35F /* ViewExt.swift in Sources */,
 				CC116C9D2917A09200BDF7F5 /* StartScreenPresenter.swift in Sources */,
 				CC8BAB9F294664F500D8454E /* QuotesStackView.swift in Sources */,

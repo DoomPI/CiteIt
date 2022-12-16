@@ -12,24 +12,11 @@ struct MainScreenView: View {
     @ObservedObject
     var observedObject: MainScreenObservable
     
-    @Environment(\.displayScale) private var displayScale
-    
     @Namespace
     private var namespace
     
     @State
     private var quotesViewModel = Model.GetQuotesList.ViewModel.empty
-    
-    private let size = UIScreen.main.bounds.size
-    
-    @State
-    private var image = Image(systemName: "photo")
-    
-    @State
-    private var sharePreview = SharePreview(Text("Никита"), image: Image(systemName: "square.and.arrow.up"))
-    
-    @State
-    private var shareText = Text("Никита")
     
     @State
     private var isExpanded = false
@@ -86,9 +73,6 @@ struct MainScreenView: View {
                     }
                 }
             }
-            .onAppear {
-                render()
-            }
         }
         .onReceive(observedObject.$quotesViewModel) { newQuoteViewModel in
             self.quotesViewModel = newQuoteViewModel
@@ -97,31 +81,5 @@ struct MainScreenView: View {
     
     func showQuotesList(quoteViewModel: Model.GetQuotesList.ViewModel) {
         self.observedObject.quotesViewModel = quoteViewModel
-    }
-    
-    @MainActor
-    private func render() {
-        DispatchQueue.main.async {
-            let renderer = ImageRenderer(
-                content: FullQuoteView(
-                    quoteVo: Model.GetQuotesList.ViewObject(
-                        quote: QuotesModel.Quote(
-                            text: "Cite it",
-                            author: "Somebody"
-                        )
-                    )
-                )
-                .frame(width: size.width * 0.75, height: size.height * 0.5)
-                .cornerRadius(20)
-            )
-            
-            renderer.scale = displayScale
-            
-            if let uiImage = renderer.uiImage,
-               let data = uiImage.pngData(),
-               let renderedImage = UIImage(data: data) {
-                image = Image(uiImage: renderedImage)
-            }
-        }
     }
 }

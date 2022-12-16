@@ -21,6 +21,23 @@ struct ExpandedQuoteView: View {
     
     var quoteVo: Model.GetQuotesList.ViewObject
     
+    @State
+    private var image = Image(systemName: "photo")
+    
+    @State
+    private var sharePreview = SharePreview("", image: Image(systemName: "square.and.arrow.up"))
+    
+    @State
+    private var shareText = Text("")
+    
+    @Environment(\.displayScale)
+    private var displayScale
+    
+    private let size = UIScreen.main.bounds.size
+    
+    @State
+    private var viewDidLoad = false
+    
     var body: some View {
             
         VStack {
@@ -44,7 +61,6 @@ struct ExpandedQuoteView: View {
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)
                 .font(.custom("Organic Peach DEMO", size: 30))
-                //.matchedGeometryEffect(id: "text\(id)", in: namespace)
             
             Spacer()
             
@@ -58,6 +74,18 @@ struct ExpandedQuoteView: View {
             }
             
             Spacer()
+            
+            ShareLink(
+                item: image,
+                message: shareText,
+                preview: sharePreview
+            ) {
+                Image(systemName: "square.and.arrow.up.circle")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 60)
+                    .foregroundColor(.white)
+            }
             
             HStack {
                 Spacer()
@@ -73,5 +101,34 @@ struct ExpandedQuoteView: View {
                 .foregroundColor(quoteVo.color)
                 .matchedGeometryEffect(id: "background\(id)", in: namespace)
         )
+        .onAppear {
+            render()
+        }
+    }
+    
+    @MainActor
+    private func render() {
+        DispatchQueue.main.async {
+            let renderer = ImageRenderer(
+                content: ShareQuoteView(
+                    quoteVo: quoteVo
+                )
+                .frame(width: size.width * 0.75, height: size.height * 0.5)
+                .cornerRadius(20)
+            )
+            
+            renderer.scale = displayScale
+            
+            if let uiImage = renderer.uiImage,
+               let data = uiImage.pngData(),
+               let renderedImage = UIImage(data: data) {
+                image = Image(uiImage: renderedImage)
+            }
+            
+            sharePreview = SharePreview(
+                quoteVo.quote.text,
+                image: Image(systemName: "square.and.arrow.up")
+            )
+        }
     }
 }
