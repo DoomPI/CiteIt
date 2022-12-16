@@ -11,7 +11,8 @@ typealias Model = QuotesModel
 
 struct StartScreenView: View {
     
-    var navigationButtonAction: (Model.GetQuotesList.ViewModel) -> Void
+    @State
+    var navigationButtonAction: ((Model.GetQuotesList.ViewModel) -> Void)?
     
     @ObservedObject
     var observedObject: StartScreenObservable
@@ -58,6 +59,9 @@ struct StartScreenView: View {
                     )
             }
         }
+        .onDisappear {
+            self.navigationButtonAction = nil
+        }
     }
     
     func showQuote(quoteViewModel: Model.GetRandomQuote.ViewModel) {
@@ -69,6 +73,6 @@ struct StartScreenView: View {
     }
     
     private func navigationButtonPressed() {
-        navigationButtonAction(observedObject.quotesListViewModel)
+        navigationButtonAction?(observedObject.quotesListViewModel)
     }
 }
