@@ -29,7 +29,6 @@
 		CC917AC8290B115100D19492 /* NetworkWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917AC7290B115100D19492 /* NetworkWorker.swift */; };
 		CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917AC9290B128D00D19492 /* WorkersProtocols.swift */; };
 		CC917ACC290B18A900D19492 /* PersistenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC917ACB290B18A900D19492 /* PersistenceWorker.swift */; };
-		CCA49AF8291164DD009F9F23 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA49AF7291164DD009F9F23 /* UIViewExt.swift */; };
 		CCAD8DDD2908B76A0037AA0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DDC2908B76A0037AA0F /* AppDelegate.swift */; };
 		CCAD8DDF2908B76A0037AA0F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DDE2908B76A0037AA0F /* SceneDelegate.swift */; };
 		CCAD8DE62908B76C0037AA0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCAD8DE52908B76C0037AA0F /* Assets.xcassets */; };
@@ -37,7 +36,6 @@
 		CCAD8DF42908B8030037AA0F /* MainScreenAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAD8DF32908B8030037AA0F /* MainScreenAssembly.swift */; };
 		CCD8BBA52946FB100093B35F /* OrganicPeachDemoRegular-rgArp.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCD8BBA42946FB100093B35F /* OrganicPeachDemoRegular-rgArp.ttf */; };
 		CCD8BBA72947008A0093B35F /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD8BBA62947008A0093B35F /* ViewExt.swift */; };
-		CCE9176529174E8300B1BC29 /* UIViewAsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +61,6 @@
 		CC917AC7290B115100D19492 /* NetworkWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkWorker.swift; sourceTree = "<group>"; };
 		CC917AC9290B128D00D19492 /* WorkersProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkersProtocols.swift; sourceTree = "<group>"; };
 		CC917ACB290B18A900D19492 /* PersistenceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceWorker.swift; sourceTree = "<group>"; };
-		CCA49AF7291164DD009F9F23 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		CCAD8DD92908B76A0037AA0F /* CiteIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CiteIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCAD8DDC2908B76A0037AA0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCAD8DDE2908B76A0037AA0F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +70,6 @@
 		CCAD8DF32908B8030037AA0F /* MainScreenAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenAssembly.swift; sourceTree = "<group>"; };
 		CCD8BBA42946FB100093B35F /* OrganicPeachDemoRegular-rgArp.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OrganicPeachDemoRegular-rgArp.ttf"; sourceTree = "<group>"; };
 		CCD8BBA62947008A0093B35F /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
-		CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewAsImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +145,6 @@
 		CCA49AF3291153C0009F9F23 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				CCA49AF7291164DD009F9F23 /* UIViewExt.swift */,
-				CCE9176429174E8300B1BC29 /* UIViewAsImage.swift */,
 				CC8BABA22946932800D8454E /* ColorUtils.swift */,
 				CCD8BBA62947008A0093B35F /* ViewExt.swift */,
 				CC0775812947567A004D4157 /* StringExt.swift */,
@@ -305,7 +299,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC116C9F2917A09D00BDF7F5 /* StartScreenRouter.swift in Sources */,
-				CCE9176529174E8300B1BC29 /* UIViewAsImage.swift in Sources */,
 				CCAD8DF42908B8030037AA0F /* MainScreenAssembly.swift in Sources */,
 				CC917ACA290B128D00D19492 /* WorkersProtocols.swift in Sources */,
 				CC07758429483A33004D4157 /* ShareQuoteView.swift in Sources */,
@@ -330,7 +323,6 @@
 				CC81D5C8294C3513003A0D4B /* ExpandedQuoteView.swift in Sources */,
 				CC8034B5293D5CF80030BEB8 /* QuoteView.swift in Sources */,
 				CC116CA32917A0B300BDF7F5 /* StartScreenProtocols.swift in Sources */,
-				CCA49AF8291164DD009F9F23 /* UIViewExt.swift in Sources */,
 				CCAD8DDF2908B76A0037AA0F /* SceneDelegate.swift in Sources */,
 				CCAD8DF22908B7D20037AA0F /* MainScreenViewController.swift in Sources */,
 			);
