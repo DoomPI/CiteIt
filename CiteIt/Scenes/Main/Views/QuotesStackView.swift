@@ -14,41 +14,44 @@ struct QuotesStackView: View {
     @Binding
     var quotesViewModel: Model.GetQuotesList.ViewModel
     
-    @Binding
-    var isExpanded: Bool
-    
     var body: some View {
         
         let size = UIScreen.main.bounds.size
         let count = quotesViewModel.quotesList.count
         let numberOfVisible: CGFloat = 3
         
-        ZStack {
+        if (count == 0) {
             
-            ForEach(0 ..< count, id: \.self) { index in
+        } else {
+            
+            ZStack {
                 
-                let reverseIndex = Double(quotesViewModel.quotesList.endIndex - index - 1)
                 
-                QuoteView(
-                    namespace: namespace,
-                    id: Int(reverseIndex),
-                    quoteVo: quotesViewModel.quotesList[index],
-                    quotesViewModel: $quotesViewModel,
-                    textPadding: (1 - reverseIndex) * 20,
-                    isTextShown: reverseIndex < 2
-                )
-                .hidden(reverseIndex >= numberOfVisible)
-                .offset(x: reverseIndex * 35)
-                .padding(reverseIndex * 20)
-                .rotationEffect(
-                    .degrees(reverseIndex * 8),
-                    anchor: .bottomTrailing
-                )
-                .frame(width: size.width * 0.75, height: size.height * 0.5)
-                .zIndex(Double(index))
-                .disabled(index != count - 1)
+                ForEach(0 ..< count, id: \.self) { index in
+                    
+                    let reverseIndex = Double(quotesViewModel.quotesList.endIndex - index - 1)
+                    
+                    QuoteView(
+                        namespace: namespace,
+                        id: Int(reverseIndex),
+                        quoteVo: quotesViewModel.quotesList[index],
+                        quotesViewModel: $quotesViewModel,
+                        textPadding: (1 - reverseIndex) * 20,
+                        isTextShown: reverseIndex < 2
+                    )
+                    .hidden(reverseIndex >= numberOfVisible)
+                    .offset(x: reverseIndex * 35)
+                    .padding(reverseIndex * 20)
+                    .rotationEffect(
+                        .degrees(reverseIndex * 8),
+                        anchor: .bottomTrailing
+                    )
+                    .frame(width: size.width * 0.75, height: size.height * 0.5)
+                    .zIndex(Double(index))
+                    .disabled(index != count - 1)
+                }
+                .transition(.push(from: Edge.trailing))
             }
-            .transition(.push(from: Edge.trailing))
         }
     }
 }

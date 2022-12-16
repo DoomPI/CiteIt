@@ -55,22 +55,20 @@ struct MainScreenView: View {
                 ZStack {
                     
                     ScrollView(showsIndicators: false) {
+                        
                         HStack {
                             QuotesStackView(
                                 namespace: namespace,
-                                quotesViewModel: $quotesViewModel,
-                                isExpanded: $isExpanded
+                                quotesViewModel: $quotesViewModel
                             )
                             Spacer()
                         }
                         .padding(20)
                         .onTapGesture {
-                            withAnimation {
+                            withAnimation(.default.speed(0.75)) {
                                 isExpanded.toggle()
                             }
                         }
-                        
-                        Spacer()
                     }
                     
                     if (isExpanded) {

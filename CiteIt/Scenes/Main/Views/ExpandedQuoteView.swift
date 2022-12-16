@@ -44,7 +44,18 @@ struct ExpandedQuoteView: View {
                 .multilineTextAlignment(.leading)
                 .foregroundColor(.white)
                 .font(.custom("Organic Peach DEMO", size: 30))
-                .matchedGeometryEffect(id: "text\(id)", in: namespace)
+                //.matchedGeometryEffect(id: "text\(id)", in: namespace)
+            
+            Spacer()
+            
+            HStack {
+                Spacer()
+                Text(quoteVo.quote.author)
+                    .tracking(5)
+                    .foregroundColor(.white)
+                    .font(.custom("Organic Peach DEMO", size: 20))
+                    .padding(.trailing, 10)
+            }
             
             Spacer()
             
